@@ -1,0 +1,2505 @@
+
+<!doctype html>
+<html lang="en-US" id="html">
+
+<head>
+	<title>Engineering Intelligence Through Data Visualization at Uber - Uber Engineering Blog</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="pingback" href="https://eng.uber.com/xmlrpc.php">
+
+	<link rel="dns-prefetch" href="//tags.tiqcdn.com">
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<script type="text/javascript">
+var utag_data = {
+    "site_name": "Uber Engineering Blog",
+    "site_description": "Software engineering and technologies that set the world in motion",
+    "post_category": [
+        "open-source-articles",
+        "uberdata"
+    ],
+    "post_tags": [
+        "d3-js",
+        "dashboard",
+        "data",
+        "data-visualization",
+        "jsx",
+        "react",
+        "uber-data"
+    ],
+    "page_type": "post",
+    "post_id": 476,
+    "post_title": "Engineering Intelligence Through Data Visualization at Uber",
+    "post_author": "Nicolas Garcia Belmonte",
+    "post_date": "2016\/05\/03",
+    "edit_lock": [
+        "1582846088:340"
+    ],
+    "edit_last": [
+        "340"
+    ],
+    "et_monarch_override": [
+        ""
+    ],
+    "yoast_wpseo_primary_category": [
+        "21"
+    ],
+    "blogtype": [
+        "image"
+    ],
+    "image1": [
+        ""
+    ],
+    "image2": [
+        ""
+    ],
+    "image3": [
+        ""
+    ],
+    "thumbnail_id": [
+        "477"
+    ],
+    "et_social_shares_twitter": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:258;s:8:\"last_upd\";s:19:\"2017-12-18 22:10:47\";}"
+    ],
+    "et_social_shares_hackernews": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:46;s:8:\"last_upd\";s:19:\"2017-12-18 22:10:47\";}"
+    ],
+    "et_social_shares_googleplus": [
+        "a:3:{s:12:\"force_update\";b:1;s:6:\"counts\";i:40;s:8:\"last_upd\";s:19:\"2017-12-18 22:14:28\";}"
+    ],
+    "et_social_shares_linkedin": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:1276;s:8:\"last_upd\";s:19:\"2017-12-18 22:10:47\";}"
+    ],
+    "et_social_shares_facebook": [
+        "a:3:{s:12:\"force_update\";b:1;s:6:\"counts\";i:1489;s:8:\"last_upd\";s:19:\"2017-12-18 22:14:28\";}"
+    ],
+    "yoast_wpseo_opengraph-title": [
+        "Engineering Intelligence Through Data Visualization at Uber"
+    ],
+    "yoast_wpseo_opengraph-description": [
+        "The Uber Engineering data visualization team delivers intelligence through crafting visual exploratory data analysis tools. Here are some of the results."
+    ],
+    "yoast_wpseo_twitter-title": [
+        "Engineering Intelligence Through Data Visualization at Uber"
+    ],
+    "yoast_wpseo_twitter-description": [
+        "The Uber Engineering data visualization team delivers intelligence through crafting visual exploratory data analysis tools. Here are some of the results."
+    ],
+    "yoast_wpseo_twitter-image": [
+        "http:\/\/eng.uber.com\/wp-content\/uploads\/2016\/05\/twitter_uber_sf_image.png"
+    ],
+    "yoast_wpseo_opengraph-image": [
+        "http:\/\/eng.uber.com\/wp-content\/uploads\/2016\/05\/twitter_uber_sf_image.png"
+    ],
+    "et_social_shares_${100379+99596}": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-05-10 08:04:31\";}"
+    ],
+    "et_social_shares_http:\/\/testasp.vulnweb.com\/t\/xss.html?.jpg": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-09-17 14:08:47\";}"
+    ],
+    "et_social_shares_rn _some_custom_injected_header:injected_by_wvs": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:47:36\";}"
+    ],
+    "et_social_shares_response.write(9942840*9404112)": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-05-10 08:07:30\";}"
+    ],
+    "et_social_shares_n _some_custom_injected_header:injected_by_wvs": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:47:37\";}"
+    ],
+    "et_social_shares_'+response.write(9942840*9404112)+'": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-05-10 08:07:31\";}"
+    ],
+    "et_social_shares_)": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-16 23:33:32\";}"
+    ],
+    "et_social_shares_r _some_custom_injected_header:injected_by_wvs": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:47:37\";}"
+    ],
+    "et_social_shares_!(()&&!|*|*|": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-16 23:33:33\";}"
+    ],
+    "et_social_shares_^(#$!@#$)(()))******": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-16 23:33:35\";}"
+    ],
+    "et_social_shares_": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 00:52:42\";}"
+    ],
+    "et_social_shares_http:\/\/some-inexistent-website.acu\/some_inexistent_file_with_long_name.jpg": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:13\";}"
+    ],
+    "et_social_shares_1some_inexistent_file_with_long_name.jpg": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:14\";}"
+    ],
+    "et_social_shares__http:\/\/testasp.vulnweb.com\/t\/fit.txt": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:15\";}"
+    ],
+    "et_social_shares_http:\/\/testasp.vulnweb.com\/t\/fit.txt.jpg": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:15\";}"
+    ],
+    "et_social_shares_testasp.vulnweb.com": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:16\";}"
+    ],
+    "et_social_shares_set|set&set": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 01:29:20\";}"
+    ],
+    "et_social_shares_'set|set&set'": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:49\";}"
+    ],
+    "et_social_shares_nset|set&setn": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:50\";}"
+    ],
+    "et_social_shares_`set|set&set`": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:50\";}"
+    ],
+    "et_social_shares_;set|set&set;": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:51\";}"
+    ],
+    "et_social_shares_http:\/\/hit_d_d_m_ia_m_j8g0.bxss.me\/": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-05-10 08:12:28\";}"
+    ],
+    "et_social_shares_)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 00:54:50\";}"
+    ],
+    "et_social_shares_;print(md5(acunetix_wvs_security_test));": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-16 23:49:17\";}"
+    ],
+    "et_social_shares_';print(md5(acunetix_wvs_security_test));$a='": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-16 23:49:19\";}"
+    ],
+    "et_social_shares_${@print(md5(acunetix_wvs_security_test))}": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-16 23:49:22\";}"
+    ],
+    "et_social_shares_admin-ajax.php": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:58\";}"
+    ],
+    "et_social_shares_admin-ajax.phpu0000": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:59\";}"
+    ],
+    "et_social_shares_admin-ajax.php\/.": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:59\";}"
+    ],
+    "et_social_shares_&lt;!--": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 01:14:14\";}"
+    ],
+    "et_social_shares_twitter_9444": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-06-29 13:38:09\";}"
+    ],
+    "et_social_shares_1u0000u00c0u00a7u00c0u00a2": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 00:52:43\";}"
+    ],
+    "et_social_shares_@@ke_ov3": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-06-29 13:39:26\";}"
+    ],
+    "et_social_shares__jy_i=": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 00:52:47\";}"
+    ],
+    "et_social_shares_(select convert(int,_c_h_a_r(65)))": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 00:52:51\";}"
+    ],
+    "et_social_shares_${9999225+9999205}": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:47:44\";}"
+    ],
+    "et_social_shares_response.write(9624219*9742333)": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:02\";}"
+    ],
+    "et_social_shares_'+response.write(9624219*9742333)+'": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:03\";}"
+    ],
+    "et_social_shares_http:\/\/hit5n_uen8ehhl.bxss.me\/": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:48:45\";}"
+    ],
+    "et_social_shares_@@_q_n2_x0": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:50:47\";}"
+    ],
+    "et_social_shares_-1 _o_r 2+36-36-1=0+0+0+1 --": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:23\";}"
+    ],
+    "et_social_shares_-1 _o_r 2+139-139-1=0+0+0+1": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:24\";}"
+    ],
+    "et_social_shares_-1' _o_r 2+835-835-1=0+0+0+1 --": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:24\";}"
+    ],
+    "et_social_shares_1 waitfor delay '0:0:12' --": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:27\";}"
+    ],
+    "et_social_shares_xb_e9_oa_x2'; waitfor delay '0:0:12' --": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:28\";}"
+    ],
+    "et_social_shares__p_u_o_n_j_q_a_h'); waitfor delay '0:0:12' --": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:28\";}"
+    ],
+    "et_social_shares__usy_s_b4a4')); waitfor delay '0:0:12' --": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:29\";}"
+    ],
+    "et_social_shares__fy40jfev';select pg_sleep(12); --": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:29\";}"
+    ],
+    "et_social_shares_z7mc_m9kx');select pg_sleep(12); --": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:30\";}"
+    ],
+    "et_social_shares_k_y_m_d_e_j_he'));select pg_sleep(4); --": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-12 21:52:30\";}"
+    ],
+    "et_social_shares__s_h_jo_q3_nh_u3_u=": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-16 23:22:16\";}"
+    ],
+    "et_social_shares_http:\/\/hit4_d480_n_wo_a_x.bxss.me\/": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 00:12:06\";}"
+    ],
+    "et_social_shares_${9999531+9999950}": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 00:47:29\";}"
+    ],
+    "et_social_shares_@@7_y_h_a2": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 00:52:45\";}"
+    ],
+    "et_social_shares_\/www.vulnweb.com": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 01:02:29\";}"
+    ],
+    "et_social_shares_$(nslookup k_am_u7a2_n)": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 01:29:22\";}"
+    ],
+    "et_social_shares_facebook_9347": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-08-17 01:33:18\";}"
+    ],
+    "et_social_shares_..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/etc\/passwd": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:28\";}"
+    ],
+    "et_social_shares_....................etcpasswd.jpg": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:29\";}"
+    ],
+    "et_social_shares_\/..\/..\/\/..\/..\/\/..\/..\/\/..\/..\/\/..\/..\/\/etc\/passwd.jpg": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:30\";}"
+    ],
+    "et_social_shares_..\/..\/..\/..\/..\/..\/etc\/passwd": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:31\";}"
+    ],
+    "et_social_shares_..\/..\/\/..\/..\/\/..\/..\/\/..\/..\/\/..\/..\/\/..\/..\/\/..\/..\/\/..\/..\/\/etc\/passwd": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:33\";}"
+    ],
+    "et_social_shares_file:\/\/\/etc\/passwd": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:35\";}"
+    ],
+    "et_social_shares_\/_w_e_b-_i_n_f\/web.xml": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:37\";}"
+    ],
+    "et_social_shares_windowswin.ini": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:39\";}"
+    ],
+    "et_social_shares_................windowswin.ini": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:40\";}"
+    ],
+    "et_social_shares_\/..\/..\/..\/..\/..\/..\/windows\/win.ini": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:42\";}"
+    ],
+    "et_social_shares__w_e_b-_i_n_f\/web.xml": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:44\";}"
+    ],
+    "et_social_shares__w_e_b-_i_n_fweb.xml": [
+        "a:3:{s:12:\"force_update\";b:0;s:6:\"counts\";i:0;s:8:\"last_upd\";s:19:\"2016-10-09 15:21:45\";}"
+    ],
+    "yoast_wpseo_content_score": [
+        "30"
+    ],
+    "bitly_link_email": [
+        "https:\/\/ubr.to\/2nDRU1X"
+    ],
+    "bitly_link_linked_in": [
+        "https:\/\/ubr.to\/2nDKThs"
+    ],
+    "bitly_link_google_plus": [
+        "https:\/\/ubr.to\/2nDKD2d"
+    ],
+    "pinterest_shares": [
+        "54"
+    ],
+    "post_views_count": [
+        "24895"
+    ],
+    "tdc_dirty_content": [
+        "1"
+    ],
+    "tdc_icon_fonts": [
+        "a:0:{}"
+    ],
+    "tdc_google_fonts": [
+        "a:0:{}"
+    ],
+    "swp_pin_browser_extension": [
+        "default"
+    ],
+    "swp_pin_browser_extension_location": [
+        "default"
+    ],
+    "swp_post_location": [
+        "default"
+    ],
+    "swp_float_location": [
+        "default"
+    ],
+    "inline_featured_image": [
+        "0"
+    ],
+    "yoast_wpseo_focuskeywords": [
+        "[]"
+    ],
+    "yoast_wpseo_keywordsynonyms": [
+        "[\"\"]"
+    ],
+    "swp_twitter_use_open_graph": [
+        "true"
+    ],
+    "ampforwp_custom_content_editor": [
+        ""
+    ],
+    "ampforwp_custom_content_editor_checkbox": [
+        ""
+    ],
+    "ampforwp-amp-on-off": [
+        "default"
+    ],
+    "ampforwp-redirection-on-off": [
+        "enable"
+    ],
+    "yoast_wpseo_opengraph-image-id": [
+        "484"
+    ],
+    "swp_open_graph_image_data": [
+        "false"
+    ],
+    "swp_open_graph_image_url": [
+        ""
+    ],
+    "google_plus_shares": [
+        "0"
+    ],
+    "wp_old_slug": [
+        "data-viz-intel"
+    ],
+    "b2s_post_meta": [
+        "a:6:{s:8:\"og_title\";s:59:\"Engineering Intelligence Through Data Visualization at Uber\";s:7:\"og_desc\";s:178:\"The data visualization team in Uber Engineering delivers intelligence through crafting visual exploratory data analysis tools. Here's what some of these visualizations look like.\";s:8:\"og_image\";s:66:\"https:\/\/eng.uber.com\/wp-content\/uploads\/2016\/05\/sf_header_slow.gif\";s:10:\"card_title\";s:59:\"Engineering Intelligence Through Data Visualization at Uber\";s:9:\"card_desc\";s:178:\"The data visualization team in Uber Engineering delivers intelligence through crafting visual exploratory data analysis tools. Here's what some of these visualizations look like.\";s:10:\"card_image\";s:66:\"https:\/\/eng.uber.com\/wp-content\/uploads\/2016\/05\/sf_header_slow.gif\";}"
+    ],
+    "disabel_wpdevart_facebook_comment": [
+        "enable"
+    ],
+    "yoast_wpseo_focuskw": [
+        "data visualization intelligence"
+    ],
+    "yoast_wpseo_metadesc": [
+        "The data visualization team at Uber delivers intelligence through crafting visual exploratory data analysis tools for Uber\u2019s datasets."
+    ],
+    "yoast_wpseo_linkdex": [
+        "62"
+    ],
+    "facebook_shares": [
+        "0"
+    ],
+    "linkedin_shares": [
+        "0"
+    ],
+    "whatsapp_shares": [
+        "0"
+    ],
+    "bitly_link": [
+        "https:\/\/ubr.to\/2MeNdve"
+    ],
+    "twitter_shares": [
+        "2"
+    ],
+    "hacker_news_shares": [
+        "0"
+    ],
+    "reddit_shares": [
+        "0"
+    ],
+    "total_shares": [
+        "2"
+    ],
+    "swp_cache_timestamp": [
+        "460570"
+    ],
+    "swp_optimization_score": [
+        "0"
+    ],
+    "swp_optimization_potential": [
+        "200"
+    ],
+    "user_role": "guest"
+};
+</script>
+
+<!-- Social Warfare v4.3.0 https://warfareplugins.com - BEGINNING OF OUTPUT -->
+<meta property="og:description" content="The data visualization team in Uber Engineering delivers intelligence through crafting visual exploratory data analysis tools. Here's what some of these visualizations look like.">
+<meta property="og:title" content="Engineering Intelligence Through Data Visualization at Uber">
+<meta property="article_author" content="Nicolas Garcia Belmonte">
+<meta property="article_publisher" content="https://www.facebook.com/uberengineering/">
+<meta property="og:image" content="https://eng.uber.com/wp-content/uploads/2016/05/sf_header_slow.gif">
+<meta property="fb:app_id" content="258939214674437">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://eng.uber.com/data-visualization-intelligence/">
+<meta property="og:site_name" content="Uber Engineering Blog">
+<meta property="article:published_time" content="2016-05-03T09:20:06-07:00">
+<meta property="article:modified_time" content="2020-02-27T15:30:28-08:00">
+<meta property="og:updated_time" content="2020-02-27T15:30:28-08:00">
+<meta name="twitter:title" content="Engineering Intelligence Through Data Visualization at Uber">
+<meta name="twitter:description" content="Engineering Intelligence Through Data Visualization at Uber">
+<meta name="twitter:image" content="http://eng.uber.com/wp-content/uploads/2016/05/twitter_uber_sf_image.png">
+<meta name="twitter:site" content="@ubereng">
+<meta name="twitter:creator" content="@ubereng">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+	@font-face {
+		font-family: "sw-icon-font";
+		src:url("https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.eot?ver=4.3.0");
+		src:url("https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.eot?ver=4.3.0#iefix") format("embedded-opentype"),
+		url("https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.woff?ver=4.3.0") format("woff"),
+		url("https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.ttf?ver=4.3.0") format("truetype"),
+		url("https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/social-warfare/assets/fonts/sw-icon-font.svg?ver=4.3.0#1445203416") format("svg");
+		font-weight: normal;
+		font-style: normal;
+		font-display:block;
+	}
+</style>
+<!-- Social Warfare v4.3.0 https://warfareplugins.com - END OF OUTPUT -->
+
+<link rel="icon" type="image/png" href="https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2019/02/favicon.png"><meta property="og:title" content="Engineering Intelligence Through Data Visualization at Uber"/>
+<meta property="og:description" content="The data visualization team in Uber Engineering delivers intelligence through crafting visual exploratory data analysis tools. Here&#039;s what some of these visualizations look like."/>
+<meta property="og:image" content="https://eng.uber.com/wp-content/uploads/2016/05/sf_header_slow.gif"/>
+<meta property="og:image:width" content="700"/>
+<meta property="og:image:height" content="300"/>
+<meta property="og:image:type" content="image/gif"/>
+<meta property="og:type" content="article"/>
+<meta property="og:article:published_time" content="2016-05-03 09:20:06"/>
+<meta property="og:article:modified_time" content="2020-02-27 15:30:28"/>
+<meta property="og:article:tag" content="d3.js"/>
+<meta property="og:article:tag" content="Dashboard"/>
+<meta property="og:article:tag" content="Data"/>
+<meta property="og:article:tag" content="Data Visualization"/>
+<meta property="og:article:tag" content="JSX"/>
+<meta property="og:article:tag" content="React"/>
+<meta property="og:article:tag" content="Uber Data"/>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Engineering Intelligence Through Data Visualization at Uber"/>
+<meta name="twitter:description" content="The data visualization team in Uber Engineering delivers intelligence through crafting visual exploratory data analysis tools. Here&#039;s what some of these visualizations look like."/>
+<meta name="twitter:image" content="https://eng.uber.com/wp-content/uploads/2016/05/sf_header_slow.gif"/>
+<meta name="author" content="Nicolas Garcia Belmonte"/>
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v18.8 (Yoast SEO v19.3) - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="The data visualization team at Uber delivers intelligence through crafting visual exploratory data analysis tools for Uber’s datasets." />
+	<link rel="canonical" href="https://eng.uber.com/data-visualization-intelligence/" />
+	<meta property="og:url" content="https://eng.uber.com/data-visualization-intelligence/" />
+	<meta property="og:site_name" content="Uber Engineering Blog" />
+	<meta property="article:publisher" content="https://www.facebook.com/uberengineering" />
+	<meta property="article:published_time" content="2016-05-03T16:20:06+00:00" />
+	<meta property="article:modified_time" content="2020-02-27T23:30:28+00:00" />
+	<meta property="og:image" content="https://eng.uber.com/wp-content/uploads/2016/05/twitter_uber_sf_image.png" />
+	<meta property="og:image:width" content="1024" />
+	<meta property="og:image:height" content="512" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="Nicolas Garcia Belmonte" />
+	<meta name="twitter:creator" content="@UberEng" />
+	<meta name="twitter:site" content="@UberEng" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Nicolas Garcia Belmonte" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="5 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://eng.uber.com/#organization","name":"Uber Technologies, Inc.","url":"https://eng.uber.com/","sameAs":["https://www.instagram.com/uberengineering/","https://www.linkedin.com/showcase/uberengineering/","https://www.youtube.com/uberengineering","https://www.facebook.com/uberengineering","https://twitter.com/UberEng"],"logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://eng.uber.com/#/schema/logo/image/","url":"https://eng.uber.com/wp-content/uploads/2019/11/Uber_Icon_Facebook.png","contentUrl":"https://eng.uber.com/wp-content/uploads/2019/11/Uber_Icon_Facebook.png","width":500,"height":500,"caption":"Uber Technologies, Inc."},"image":{"@id":"https://eng.uber.com/#/schema/logo/image/"}},{"@type":"WebSite","@id":"https://eng.uber.com/#website","url":"https://eng.uber.com/","name":"Uber Engineering Blog","description":"Software engineering and technologies that set the world in motion","publisher":{"@id":"https://eng.uber.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://eng.uber.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://eng.uber.com/data-visualization-intelligence/#primaryimage","url":"https://eng.uber.com/wp-content/uploads/2016/05/sf_header_slow.gif","contentUrl":"https://eng.uber.com/wp-content/uploads/2016/05/sf_header_slow.gif","width":700,"height":300},{"@type":"WebPage","@id":"https://eng.uber.com/data-visualization-intelligence/","url":"https://eng.uber.com/data-visualization-intelligence/","name":"Engineering Intelligence Through Data Visualization at Uber - Uber Engineering Blog","isPartOf":{"@id":"https://eng.uber.com/#website"},"primaryImageOfPage":{"@id":"https://eng.uber.com/data-visualization-intelligence/#primaryimage"},"datePublished":"2016-05-03T16:20:06+00:00","dateModified":"2020-02-27T23:30:28+00:00","description":"The data visualization team at Uber delivers intelligence through crafting visual exploratory data analysis tools for Uber’s datasets.","breadcrumb":{"@id":"https://eng.uber.com/data-visualization-intelligence/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://eng.uber.com/data-visualization-intelligence/"]}]},{"@type":"BreadcrumbList","@id":"https://eng.uber.com/data-visualization-intelligence/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://eng.uber.com/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://eng.uber.com/category/articles/"},{"@type":"ListItem","position":3,"name":"Uber Data","item":"https://eng.uber.com/category/articles/uberdata/"},{"@type":"ListItem","position":4,"name":"Engineering Intelligence Through Data Visualization at Uber"}]},{"@type":"Article","@id":"https://eng.uber.com/data-visualization-intelligence/#article","isPartOf":{"@id":"https://eng.uber.com/data-visualization-intelligence/"},"author":{"name":"Nicolas Garcia Belmonte","@id":"https://eng.uber.com/#/schema/person/a6715b451db6449e16d136813a760a80"},"headline":"Engineering Intelligence Through Data Visualization at Uber","datePublished":"2016-05-03T16:20:06+00:00","dateModified":"2020-02-27T23:30:28+00:00","mainEntityOfPage":{"@id":"https://eng.uber.com/data-visualization-intelligence/"},"wordCount":1036,"publisher":{"@id":"https://eng.uber.com/#organization"},"image":{"@id":"https://eng.uber.com/data-visualization-intelligence/#primaryimage"},"thumbnailUrl":"https://eng.uber.com/wp-content/uploads/2016/05/sf_header_slow.gif","keywords":["d3.js","Dashboard","Data","Data Visualization","JSX","React","Uber Data"],"articleSection":["Open Source","Uber Data"],"inLanguage":"en-US"},{"@type":"Person","@id":"https://eng.uber.com/#/schema/person/a6715b451db6449e16d136813a760a80","name":"Nicolas Garcia Belmonte","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://eng.uber.com/#/schema/person/image/","url":"https://eng.uber.com/wp-content/uploads/2018/12/wdtest_05a7ce5e-3ae7-4d34-b813-46f4589ac809-jRvk5-150x150.jpg","contentUrl":"https://eng.uber.com/wp-content/uploads/2018/12/wdtest_05a7ce5e-3ae7-4d34-b813-46f4589ac809-jRvk5-150x150.jpg","caption":"Nicolas Garcia Belmonte"},"description":"Nicolas Garcia Belmonte is Director of Engineering, Urban Computing and Visualization, at Uber.","url":"https://eng.uber.com/author/nicouber-com/"}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Uber Engineering Blog &raquo; Feed" href="https://eng.uber.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Uber Engineering Blog &raquo; Comments Feed" href="https://eng.uber.com/comments/feed/" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/eng.uber.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-quicklatex-format-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/wp-quicklatex/css/quicklatex-format.css?ver=6.0' type='text/css' media='all' />
+<link rel='stylesheet' id='social-warfare-block-css-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/social-warfare/assets/js/post-editor/dist/blocks.style.build.css?ver=6.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/css/dist/block-library/style.min.css?ver=6.0' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 11px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 32px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--regular: 15px;--wp--preset--font-size--larger: 50px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='arve-main-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/advanced-responsive-video-embedder/build/main.css?ver=1bca356de819b25e2c48f05fc0d1b1e9' type='text/css' media='all' />
+<link rel='stylesheet' id='perfect-pullquotes-styles-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/perfect-pullquotes/perfect-pullquotes.css?ver=1.7.5' type='text/css' media='all' />
+<link rel='stylesheet' id='uber_eng_regional_office_shared-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/uber-eng-regional-plugins/dist/css/shared-style.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='uber_eng_regional_office_frontend-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/uber-eng-regional-plugins/dist/css/style.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ppress-frontend-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/wp-user-avatar/assets/css/frontend.min.css?ver=3.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='ppress-flatpickr-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/wp-user-avatar/assets/flatpickr/flatpickr.min.css?ver=3.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='ppress-select2-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/wp-user-avatar/assets/select2/select2.min.css?ver=6.0' type='text/css' media='all' />
+<link rel='stylesheet' id='mc4wp-form-basic-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/mailchimp-for-wp/assets/css/form-basic.css?ver=4.8.7' type='text/css' media='all' />
+<link rel='stylesheet' id='search-filter-plugin-styles-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/search-filter-pro/public/assets/css/search-filter.min.css?ver=2.5.12' type='text/css' media='all' />
+<link rel='stylesheet' id='social_warfare-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/social-warfare/assets/css/style.min.css?ver=4.3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='newspaper-parent-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/themes/Newspaper/style.css?ver=1.0.9' type='text/css' media='all' />
+<link rel='stylesheet' id='newspaper-child-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/themes/Newspaper-child/dist/css/style.min.css?ver=1.0.9' type='text/css' media='all' />
+<link rel='stylesheet' id='td-plugin-multi-purpose-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/td-composer/td-multi-purpose/style.css?ver=bcb4f14ba9142ca1fd172c7d9de6043b' type='text/css' media='all' />
+<link rel='stylesheet' id='tablepress-default-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/tablepress/css/default.min.css?ver=1.14' type='text/css' media='all' />
+<link rel='stylesheet' id='td-theme-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/themes/Newspaper-child/style.css?ver=1.0.9' type='text/css' media='all' />
+<style id='td-theme-inline-css' type='text/css'>
+    
+        @media (max-width: 767px) {
+            .td-header-desktop-wrap {
+                display: none;
+            }
+        }
+        @media (min-width: 767px) {
+            .td-header-mobile-wrap {
+                display: none;
+            }
+        }
+    
+	
+</style>
+<link rel='stylesheet' id='td-legacy-framework-front-style-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/td-composer/legacy/Newspaper/assets/css/td_legacy_main.css?ver=bcb4f14ba9142ca1fd172c7d9de6043b' type='text/css' media='all' />
+<link rel='stylesheet' id='td-standard-pack-framework-front-style-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/td-standard-pack/Newspaper/assets/css/td_standard_pack_main.css?ver=121f904f8d8fc180b4467ea06478f5a9' type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.16' type='text/css' media='screen' />
+<script async="async" type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/advanced-responsive-video-embedder/build/main.js?ver=1bca356de819b25e2c48f05fc0d1b1e9' id='arve-main-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/wp-user-avatar/assets/flatpickr/flatpickr.min.js?ver=6.0' id='ppress-flatpickr-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/wp-user-avatar/assets/select2/select2.min.js?ver=6.0' id='ppress-select2-js'></script>
+<script type='text/javascript' id='search-filter-plugin-build-js-extra'>
+/* <![CDATA[ */
+var SF_LDATA = {"ajax_url":"https:\/\/eng.uber.com\/wp-admin\/admin-ajax.php","home_url":"https:\/\/eng.uber.com\/","extensions":[]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/search-filter-pro/public/assets/js/search-filter-build.min.js?ver=2.5.12' id='search-filter-plugin-build-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/search-filter-pro/public/assets/js/chosen.jquery.min.js?ver=2.5.12' id='search-filter-plugin-chosen-js'></script>
+<script type='text/javascript' id='ajax-test-js-extra'>
+/* <![CDATA[ */
+var the_ajax_script = {"ajaxurl":"https:\/\/eng.uber.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/google-site-verification-using-meta-tag//verification.js?ver=6.0' id='ajax-test-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/wp-quicklatex/js/wp-quicklatex-frontend.js?ver=1.0' id='wp-quicklatex-frontend-js'></script>
+<link rel="https://api.w.org/" href="https://eng.uber.com/wp-json/" /><link rel="alternate" type="application/json" href="https://eng.uber.com/wp-json/wp/v2/posts/476" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eng.uber.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://eng.uber.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='https://eng.uber.com/?p=476' />
+<link rel="alternate" type="application/json+oembed" href="https://eng.uber.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Feng.uber.com%2Fdata-visualization-intelligence%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://eng.uber.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Feng.uber.com%2Fdata-visualization-intelligence%2F&#038;format=xml" />
+<meta property="fb:app_id" content="1471833949804354"/><!-- Stream WordPress user activity plugin v3.9.0 -->
+
+	<!-- Twitter universal website tag code -->
+	<script>
+		!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+		},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+			a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+		// Insert Twitter Pixel ID and Standard Event data below
+		twq('init','nzphq');
+		twq('track','PageView');
+	</script>
+	<!-- End Twitter universal website tag code -->
+
+	<!-- Set up LinkedIn Insight Tag code -->
+	<script type="text/javascript">
+		linkedinpartner_id = "944068";
+		window.linkedindata_partner_ids = window.linkedindata_partner_ids || [];
+		window.linkedindata_partner_ids.push(linkedinpartner_id);
+	</script><script type="text/javascript">
+
+		(function(){var s = document.getElementsByTagName("script")[0];
+			var b = document.createElement("script");
+			b.type = "text/javascript";b.async = true;
+			b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+			s.parentNode.insertBefore(b, s);})();
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=944068&fmt=gif" />
+	</noscript>
+
+	<!-- Facebook Pixel Code -->
+	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=263264634206346&ev=PageView&noscript=1" /></noscript>
+	<!-- End Facebook Pixel Code -->
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+        <script>
+        window.tdb_globals = {"wpRestNonce":"6edea172bb","wpRestUrl":"https:\/\/eng.uber.com\/wp-json\/","permalinkStructure":"\/%postname%\/","globalSettings":{"tdcSavingHistory":false},"isAjax":false,"isAdminBarShowing":false,"autoloadScrollPercent":50,"postAutoloadStatus":"off","origPostEditUrl":null};
+    </script>
+    
+    <style id="tdb-global-colors">
+        :root {--accent-color: #fff;}
+    </style>
+	
+			<script>
+				window.tdwGlobal = {"adminUrl":"https:\/\/eng.uber.com\/wp-admin\/","wpRestNonce":"6edea172bb","wpRestUrl":"https:\/\/eng.uber.com\/wp-json\/","permalinkStructure":"\/%postname%\/"};
+			</script>
+			    <script>
+        window.tdaGlobal = {"adminUrl":"https:\/\/eng.uber.com\/wp-admin\/","wpRestNonce":"6edea172bb","wpRestUrl":"https:\/\/eng.uber.com\/wp-json\/","permalinkStructure":"\/%postname%\/","postId":476};
+    </script>
+    
+<!-- JS generated by theme -->
+
+<script>
+    
+    
+
+	    var tdBlocksArray = []; //here we store all the items for the current page
+
+	    //td_block class - each ajax block uses a object of this class for requests
+	    function tdBlock() {
+		    this.id = '';
+		    this.block_type = 1; //block type id (1-234 etc)
+		    this.atts = '';
+		    this.td_column_number = '';
+		    this.td_current_page = 1; //
+		    this.post_count = 0; //from wp
+		    this.found_posts = 0; //from wp
+		    this.max_num_pages = 0; //from wp
+		    this.td_filter_value = ''; //current live filter value
+		    this.is_ajax_running = false;
+		    this.td_user_action = ''; // load more or infinite loader (used by the animation)
+		    this.header_color = '';
+		    this.ajax_pagination_infinite_stop = ''; //show load more at page x
+	    }
+
+
+        // td_js_generator - mini detector
+        (function(){
+            var htmlTag = document.getElementsByTagName("html")[0];
+
+	        if ( navigator.userAgent.indexOf("MSIE 10.0") > -1 ) {
+                htmlTag.className += ' ie10';
+            }
+
+            if ( !!navigator.userAgent.match(/Trident.*rv\:11\./) ) {
+                htmlTag.className += ' ie11';
+            }
+
+	        if ( navigator.userAgent.indexOf("Edge") > -1 ) {
+                htmlTag.className += ' ieEdge';
+            }
+
+            if ( /(iPad|iPhone|iPod)/g.test(navigator.userAgent) ) {
+                htmlTag.className += ' td-md-is-ios';
+            }
+
+            var user_agent = navigator.userAgent.toLowerCase();
+            if ( user_agent.indexOf("android") > -1 ) {
+                htmlTag.className += ' td-md-is-android';
+            }
+
+            if ( -1 !== navigator.userAgent.indexOf('Mac OS X')  ) {
+                htmlTag.className += ' td-md-is-os-x';
+            }
+
+            if ( /chrom(e|ium)/.test(navigator.userAgent.toLowerCase()) ) {
+               htmlTag.className += ' td-md-is-chrome';
+            }
+
+            if ( -1 !== navigator.userAgent.indexOf('Firefox') ) {
+                htmlTag.className += ' td-md-is-firefox';
+            }
+
+            if ( -1 !== navigator.userAgent.indexOf('Safari') && -1 === navigator.userAgent.indexOf('Chrome') ) {
+                htmlTag.className += ' td-md-is-safari';
+            }
+
+            if( -1 !== navigator.userAgent.indexOf('IEMobile') ){
+                htmlTag.className += ' td-md-is-iemobile';
+            }
+
+        })();
+
+
+
+
+        var tdLocalCache = {};
+
+        ( function () {
+            "use strict";
+
+            tdLocalCache = {
+                data: {},
+                remove: function (resource_id) {
+                    delete tdLocalCache.data[resource_id];
+                },
+                exist: function (resource_id) {
+                    return tdLocalCache.data.hasOwnProperty(resource_id) && tdLocalCache.data[resource_id] !== null;
+                },
+                get: function (resource_id) {
+                    return tdLocalCache.data[resource_id];
+                },
+                set: function (resource_id, cachedData) {
+                    tdLocalCache.remove(resource_id);
+                    tdLocalCache.data[resource_id] = cachedData;
+                }
+            };
+        })();
+
+    
+    
+var td_viewport_interval_list=[{"limitBottom":767,"sidebarWidth":228},{"limitBottom":1018,"sidebarWidth":300},{"limitBottom":1140,"sidebarWidth":324}];
+var td_animation_stack_effect="type2";
+var tds_animation_stack=true;
+var td_animation_stack_specific_selectors=".entry-thumb, img[class*=\"wp-image-\"], a.td-sml-link-to-image > img, .td-lazy-img";
+var td_animation_stack_general_selectors=".td-animation-stack .entry-thumb, .post .entry-thumb, .post img[class*=\"wp-image-\"], a.td-sml-link-to-image > img, .td-animation-stack .td-lazy-img";
+var tdc_is_installed="yes";
+var td_ajax_url="https:\/\/eng.uber.com\/wp-admin\/admin-ajax.php?td_theme_name=Newspaper&v=11.4.3";
+var td_get_template_directory_uri="https:\/\/eng.uber.com\/wp-content\/plugins\/td-composer\/legacy\/common";
+var tds_snap_menu="";
+var tds_logo_on_sticky="";
+var tds_header_style="2";
+var td_please_wait="Please wait...";
+var td_email_user_pass_incorrect="User or password incorrect!";
+var td_email_user_incorrect="Email or username incorrect!";
+var td_email_incorrect="Email incorrect!";
+var td_user_incorrect="Username incorrect!";
+var td_email_user_empty="Email or username empty!";
+var td_pass_empty="Pass empty!";
+var td_pass_pattern_incorrect="Invalid Pass Pattern!";
+var td_retype_pass_incorrect="Retyped Pass incorrect!";
+var tds_more_articles_on_post_enable="show";
+var tds_more_articles_on_post_time_to_wait="2";
+var tds_more_articles_on_post_pages_distance_from_top=700;
+var tds_theme_color_site_wide="#276ef1";
+var tds_smart_sidebar="enabled";
+var tdThemeName="Newspaper";
+var td_magnific_popup_translation_tPrev="Previous (Left arrow key)";
+var td_magnific_popup_translation_tNext="Next (Right arrow key)";
+var td_magnific_popup_translation_tCounter="%curr% of %total%";
+var td_magnific_popup_translation_ajax_tError="The content from %url% could not be loaded.";
+var td_magnific_popup_translation_image_tError="The image #%curr% could not be loaded.";
+var tdBlockNonce="18fd9d70f1";
+var tdDateNamesI18n={"month_names":["January","February","March","April","May","June","July","August","September","October","November","December"],"month_names_short":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"day_names":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"day_names_short":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]};
+var td_ad_background_click_link="";
+var td_ad_background_click_target="";
+</script>
+
+<link rel="icon" href="https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/favicon.png" sizes="32x32" />
+<link rel="icon" href="https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/favicon.png" />
+<meta name="msapplication-TileImage" content="https://eng.uber.com/wp-content/uploads/2018/09/favicon.png" />
+
+<!-- Button style compiled by theme -->
+
+<style>
+    .tdm_block_column_content:hover .tdm-col-content-title-url .tdm-title,
+                .tds-button2 .tdm-btn-text,
+                .tds-button2 i,
+                .tds-button5:hover .tdm-btn-text,
+                .tds-button5:hover i,
+                .tds-button6 .tdm-btn-text,
+                .tds-button6 i,
+                .tdm_block_list .tdm-list-item i,
+                .tdm_block_pricing .tdm-pricing-feature i,
+                body .tdm-social-item i {
+                    color: #276ef1;
+                }
+                .tds-button1,
+                .tds-button6:after,
+                .tds-title2 .tdm-title-line:after,
+                .tds-title3 .tdm-title-line:after,
+                .tdm_block_pricing.tdm-pricing-featured:before,
+                .tdm_block_pricing.tds_pricing2_block.tdm-pricing-featured .tdm-pricing-header,
+                .tds-progress-bar1 .tdm-progress-bar:after,
+                .tds-progress-bar2 .tdm-progress-bar:after,
+                .tds-social3 .tdm-social-item {
+                    background-color: #276ef1;
+                }
+                .tds-button2:before,
+                .tds-button6:before,
+                .tds-progress-bar3 .tdm-progress-bar:after {
+                  border-color: #276ef1;
+                }
+                .tdm-btn-style1 {
+					background-color: #276ef1;
+				}
+				.tdm-btn-style2:before {
+				    border-color: #276ef1;
+				}
+				.tdm-btn-style2 {
+				    color: #276ef1;
+				}
+				.tdm-btn-style3 {
+				    -webkit-box-shadow: 0 2px 16px #276ef1;
+                    -moz-box-shadow: 0 2px 16px #276ef1;
+                    box-shadow: 0 2px 16px #276ef1;
+				}
+				.tdm-btn-style3:hover {
+				    -webkit-box-shadow: 0 4px 26px #276ef1;
+                    -moz-box-shadow: 0 4px 26px #276ef1;
+                    box-shadow: 0 4px 26px #276ef1;
+				}
+</style>
+
+<!--
+Plugin: Google meta tag Site Verification Plugin
+Tracking Code.
+
+-->
+
+<meta name="google-site-verification" content="r_qBO5P51Sv5ePmNkLpZnw72ZGPGptRNvmk-E7A4NnU"/>	<style id="tdw-css-placeholder">.td_module_flex_1 {
+  display: table-cell;
+  /* Make elements inside the container behave like table cells */
+}
+.td_block_inner {
+  display: table;
+  /* Make the container element behave like a table */
+  width: 100%;
+  /* Set full-width to expand the whole page */
+}
+.page-id-3333 a {
+  color: inherit;
+}
+</style></head>
+
+<body class="post-template-default single single-post postid-476 single-format-standard td-standard-pack newspaper-child data-visualization-intelligence global-block-template-2 single_template_2 td-animation-stack-type2 td-full-layout" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+
+<!-- Loading script asynchronously -->
+<script type="text/javascript">
+ (function(a,b,c,d){
+ a='//tags.tiqcdn.com/utag/uber/main/prod/utag.js';
+ b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+ a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+ })();
+</script>
+<!-- END: T-WP -->
+
+	<div class="a11y-nav">
+		<a href="#footer" class="screen-reader-text">Skip to footer</a>
+	</div><!-- .a11y-nav -->
+
+	<div class="td-scroll-up"><i class="td-icon-menu-up"></i></div>
+
+	<header class="site-header">
+		<div class="site-header__inner">
+			<a class="site-header__logo" href="https://eng.uber.com/" aria-label="Go home">
+				<svg width="52" height="18" viewBox="0 0 52 18" fill="none" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logo-title logo-description">
+					<title id="logo-title">Uber Engineering</title>
+					<desc id="logo-description">Uber Engineering logo</desc>
+					<path d="M2.696 10.568V0.199999H0.176V10.712C0.176 14.672 2.936 17.288 6.536 17.288C8.288 17.288 9.848 16.616 10.976 15.44V17H13.472V0.199999H10.952V10.568C10.952 13.232 9.152 15.032 6.824 15.032C4.472 15.032 2.696 13.28 2.696 10.568ZM15.9494 17H18.3494V15.464C19.4534 16.592 21.0134 17.288 22.7174 17.288C26.3174 17.288 29.1494 14.432 29.1494 10.904C29.1494 7.352 26.3174 4.496 22.7174 4.496C21.0134 4.496 19.4774 5.192 18.3734 6.32V0.199999H15.9494V17ZM18.3254 10.904C18.3254 8.528 20.2214 6.656 22.5494 6.656C24.8534 6.656 26.7494 8.528 26.7494 10.904C26.7494 13.256 24.8534 15.152 22.5494 15.152C20.1974 15.152 18.3254 13.256 18.3254 10.904ZM30.5872 10.88C30.5872 14.528 33.4192 17.264 37.0912 17.264C39.3232 17.264 41.1472 16.28 42.3712 14.648L40.6192 13.352C39.7072 14.576 38.5072 15.152 37.0912 15.152C35.0272 15.152 33.3712 13.664 33.0352 11.672H42.9952V10.88C42.9952 7.232 40.4032 4.52 36.8752 4.52C33.2992 4.52 30.5872 7.424 30.5872 10.88ZM36.8272 6.632C38.6272 6.632 40.1392 7.88 40.5472 9.752H33.0832C33.5152 7.88 35.0272 6.632 36.8272 6.632ZM51.0628 6.92V4.664H50.2228C48.8788 4.664 47.8948 5.288 47.2948 6.272V4.76H44.8948V17H47.3188V10.04C47.3188 8.144 48.4708 6.92 50.0547 6.92H51.0628Z" fill="currentColor"></path>
+				</svg><span class="site-header__logo-text">Engineering</span></span>
+			</a><!-- .site-header__logo -->
+
+			<nav id="js-site-navigation" class="site-header__navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+				<button id="js-menu-toggle" class="site-header__menu-toggle" aria-expanded="false" aria-controls="js-menu">
+					<i class="icon icon_delete-thin site-header__menu-close"></i>
+					<span class="screen-reader-text">Menu</span>
+				</button>
+				<div id="js-menu" class="site-header__navigation-container">
+					<div id="js-menu-label" class="site-header__menu-label">Menu</div>
+				<ul id="menu-main-navigation" class="site-header__menu"><li id="menu-item-6158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-first menu-item-6158"><a href="http://eng.uber.com">Blog</a>
+<ul class="sub-menu">
+	<li id="menu-item-6168" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-6168"><a href="https://eng.uber.com">Blog Main Page</a></li>
+	<li id="menu-item-5706" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5706"><a href="https://eng.uber.com/category/articles/ai/">AI</a></li>
+	<li id="menu-item-5698" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5698"><a href="https://eng.uber.com/category/articles/architecture/">Architecture</a></li>
+	<li id="menu-item-5699" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5699"><a href="https://eng.uber.com/category/articles/culture/">Culture</a></li>
+	<li id="menu-item-5701" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5701"><a href="https://eng.uber.com/category/articles/general-engineering/">General Engineering</a></li>
+	<li id="menu-item-5702" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5702"><a href="https://eng.uber.com/category/articles/mobile/">Mobile</a></li>
+	<li id="menu-item-5703" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-5703"><a href="https://eng.uber.com/category/articles/open-source-articles/">Open Source</a></li>
+	<li id="menu-item-5704" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-5704"><a href="https://eng.uber.com/category/articles/uberdata/">Uber Data</a></li>
+</ul>
+</li>
+<li id="menu-item-6159" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6159"><a href="http://eng.uber.com/research">Research</a>
+<ul class="sub-menu">
+	<li id="menu-item-6171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6171"><a href="https://eng.uber.com/research">Research Main Page</a></li>
+	<li id="menu-item-6174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6174"><a href="https://eng.uber.com/research/?_sft_category=research-ai-ml">Artificial Intelligence / Machine Learning</a></li>
+	<li id="menu-item-6175" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6175"><a href="https://eng.uber.com/research/?_sft_category=research-computer-vision">Computer Vision</a></li>
+	<li id="menu-item-6176" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6176"><a href="https://eng.uber.com/research/?_sft_category=research-economics">Economics</a></li>
+	<li id="menu-item-6177" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6177"><a href="https://eng.uber.com/research/?_sft_category=research-programming-systems">Programming Systems</a></li>
+	<li id="menu-item-6178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6178"><a href="https://eng.uber.com/research/?_sft_category=research-self-driving-vehicles">Self-Driving Vehicles</a></li>
+	<li id="menu-item-6179" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6179"><a href="https://eng.uber.com/research/?_sft_category=research-speech-conversation-nlp">Speech, Conversation, and NLP</a></li>
+</ul>
+</li>
+<li id="menu-item-6580" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6580"><a href="#">Tech Offices</a>
+<ul class="sub-menu">
+	<li id="menu-item-6775" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6775"><a href="https://eng.uber.com/locations/aarhus/">Aarhus</a></li>
+	<li id="menu-item-6589" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6589"><a href="https://eng.uber.com/locations/amsterdam/">Amsterdam</a></li>
+	<li id="menu-item-6583" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6583"><a href="https://eng.uber.com/locations/bangalore/">Bangalore</a></li>
+	<li id="menu-item-6582" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6582"><a href="https://eng.uber.com/locations/boulder/">Boulder</a></li>
+	<li id="menu-item-6805" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6805"><a href="https://eng.uber.com/locations/hyderabad/">Hyderabad</a></li>
+	<li id="menu-item-6587" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6587"><a href="https://eng.uber.com/locations/nyc/">New York City</a></li>
+	<li id="menu-item-6590" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6590"><a href="https://eng.uber.com/locations/sf/">San Francisco</a></li>
+	<li id="menu-item-6591" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6591"><a href="https://eng.uber.com/locations/seattle/">Seattle</a></li>
+	<li id="menu-item-6585" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6585"><a href="https://eng.uber.com/locations/sao-paulo/">São Paulo</a></li>
+	<li id="menu-item-6581" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6581"><a href="https://eng.uber.com/locations/sofia/">Sofia</a></li>
+	<li id="menu-item-6588" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6588"><a href="https://eng.uber.com/locations/toronto/">Toronto</a></li>
+	<li id="menu-item-6586" class="menu-item menu-item-type-post_type menu-item-object-uber_regional_office menu-item-6586"><a href="https://eng.uber.com/locations/vilnius/">Vilnius</a></li>
+</ul>
+</li>
+</ul>				<div id="js-menu-label" class="site-header__menu-label">Uber Links</div>
+				<ul id="menu-uber-link-footer" class="site-header__menu larger-screen-only"><li id="menu-item-5290" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-first menu-item-5290"><a href="https://uber.github.io/">Uber Open Source</a></li>
+<li id="menu-item-6182" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6182"><a href="https://eng.uber.com/research">Uber Research</a></li>
+<li id="menu-item-5283" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5283"><a href="https://www.uber.com/">Uber.com</a></li>
+<li id="menu-item-5284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5284"><a href="https://www.ubereats.com/">Uber Eats</a></li>
+<li id="menu-item-5286" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5286"><a href="https://www.uber.com/business?mainSite=true">Uber for Business</a></li>
+<li id="menu-item-5287" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5287"><a href="https://help.uber.com/">Help</a></li>
+<li id="menu-item-5288" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5288"><a href="https://uber.com/newsroom/">Newsroom</a></li>
+<li id="menu-item-5289" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5289"><a href="https://www.uber.com/careers/">Careers</a></li>
+</ul>				<div id="js-menu-label" class="site-header__menu-label ">Follow Us</div>
+					<ul class="site-header__menu site-header__menu--social">
+						<li><a href="https://www.facebook.com/uber"></a></li>
+						<li><a href="https://twitter.com/Uber"></a></li>
+						<li><a href="https://www.linkedin.com/company/uber-com"></a></li>
+						<li><a href="https://instagram.com/uber/"></a></li>
+						<li><a href="https://www.youtube.com/user/UberWorldwide"></a></li>
+					</ul>
+				</div>
+
+				<button id="js-search-toggle" class="site-header__search-toggle" aria-controls="js-search-form" aria-expanded="false" aria-label="Open Search">
+					<svg width="22" height="22" viewBox="0 0 21 22" style="fill:currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search-icon-title search-icon-desc">
+						<title id="search-icon-title">Search icon</title>
+						<desc id="search-icon-desc">Magnifying glass indicating a search icon</desc>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M17.2002 15.1L21.6001 19.5L19.5 21.6L15.1001 17.2C13.5 18.3 11.6001 19 9.5 19C4.30005 19 0 14.7 0 9.5C0 4.30005 4.30005 0 9.5 0C14.7 0 19 4.30005 19 9.5C19 11.6 18.3003 13.5 17.2002 15.1ZM9.5 3.09998C5.8999 3.09998 3 6 3 9.59998C3 13.2 5.8999 16.1 9.5 16.1C13.1001 16.1 16 13.2 16 9.59998C16 6 13.1001 3.09998 9.5 3.09998Z"></path>
+					</svg>
+				</button><!-- #js-search-toggle .site-header__search-toggle -->
+
+			</nav><!-- #site-navigation .site-header__navigation -->
+
+			<div id="js-search-form" class="site-header__search">
+				<button role="button" aria-label="close search" id="js-search-toggle-icon" class="site-header__search-close">
+					<i class="icon icon_delete-thin"></i>
+				</button>
+				<form id="js-search-form" method="get" class="site-header__search-form" action="https://eng.uber.com/">
+					<label for="search-field"><span class="screen-reader-text">To search this site, enter a search term</span></label>
+					<input class="site-header__search-field" id="search-field" type="text" name="s" value="" aria-required="false" autocomplete="off" placeholder="Search" />
+					<button type="submit" id="header-search-button" aria-label="Submit search" class="site-header__search-button">
+						<svg width="22" height="22" viewBox="0 0 21 22" style="fill:#000" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search-icon-title search-icon-desc">
+							<title id="search-icon-title">Search icon</title>
+							<desc id="search-icon-desc">Magnifying glass indicating a search icon</desc>
+							<path d="M17.2002 15.1L21.6001 19.5L19.5 21.6L15.1001 17.2C13.5 18.3 11.6001 19 9.5 19C4.30005 19 0 14.7 0 9.5C0 4.30005 4.30005 0 9.5 0C14.7 0 19 4.30005 19 9.5C19 11.6 18.3003 13.5 17.2002 15.1ZM9.5 3.09998C5.8999 3.09998 3 6 3 9.59998C3 13.2 5.8999 16.1 9.5 16.1C13.1001 16.1 16 13.2 16 9.59998C16 6 13.1001 3.09998 9.5 3.09998Z"></path>
+						</svg>
+					</button>
+				</form>
+			</div><!-- #js-search-form -->
+		</div><!-- #js-search-form .site-header__inner -->
+	</header><!-- .site-header -->
+<div class="td-main-content-wrap td-container-wrap">
+
+    <div class="td-container td-post-template-2">
+        <article id="post-476" class="post-476 post type-post status-publish format-standard has-post-thumbnail category-open-source-articles category-uberdata tag-d3-js tag-dashboard tag-data tag-data-visualization tag-jsx tag-react tag-uber-data" itemscope itemtype="https://schema.org/Article">
+            <div class="td-pb-row">
+                <div class="td-pb-span12">
+                    <div class="td-post-header">
+                        <div class="td-crumb-container"></div>
+                        <ul class="td-category"><li class="entry-category"><a  href="https://eng.uber.com/category/articles/open-source-articles/">Open Source</a></li><li class="entry-category"><a  href="https://eng.uber.com/category/articles/uberdata/">Uber Data</a></li></ul>                    </div>
+                </div>
+            </div> <!-- /.td-pb-row -->
+
+            <div class="td-pb-row">
+                                            <div class="td-pb-span8 td-main-content" role="main">
+                                <div class="td-ss-main-content">
+                                    
+     <article class="post-476 post type-post status-publish format-standard has-post-thumbnail category-open-source-articles category-uberdata tag-d3-js tag-dashboard tag-data tag-data-visualization tag-jsx tag-react tag-uber-data">
+        <div class="td-post-header">
+
+            <ul class="td-category">
+                                        <li class="entry-category"><a href="https://eng.uber.com/category/articles/open-source-articles/">Open Source</a></li>
+                                            <li class="entry-category"><a href="https://eng.uber.com/category/articles/uberdata/">Uber Data</a></li>
+                                </ul>
+
+            <header class="td-post-title">
+                <!-- title -->
+                <h3 class="entry-title td-module-title">
+                    <a href="https://eng.uber.com/data-visualization-intelligence/" rel="bookmark" title="Engineering Intelligence Through Data Visualization at Uber">
+                        Engineering Intelligence Through Data Visualization at Uber                    </a>
+                </h3>
+
+
+                <div class="td-module-meta-info">
+								<div class="coauthors coauthors--byline">
+				<a href="https://eng.uber.com/author/nicouber-com/" title="Posts by Nicolas Garcia Belmonte" class="author url fn" rel="author">Nicolas Garcia Belmonte</a>			</div>
+			                    
+                    <!-- date -->
+                    <span class="td-post-date">
+                        <time class="entry-date updated td-module-date" datetime="2016-05-03T09:20:06+00:00" >May 3, 2016</time>
+                    </span>
+
+                    <!-- comments -->
+                    <div class="td-post-comments">
+                        <a href="https://eng.uber.com/data-visualization-intelligence/#respond">
+                            <i class="td-icon-comments"></i>
+                            0                        </a>
+                    </div>
+                </div>
+
+            </header>
+
+        </div>
+
+
+        <div class="td-post-content tagdiv-type">
+            <!-- image -->
+                                <div class="td-post-featured-image">
+                                                    <img class="entry-thumb" src="https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/sf_header_slow.gif" alt="Engineering Intelligence Through Data Visualization at Uber" title="Engineering Intelligence Through Data Visualization at Uber" />
+                                            </div>
+            
+            <div class="swp_social_panel swp_horizontal_panel swp_flat_fresh  swp_default_dark_gray_outlines swp_other_medium_gray_outlines swp_individual_full_color scale-100 scale-full_width" data-min-width="1100" data-float-color="#000" data-float="none" data-float-mobile="none" data-transition="slide" data-post-id="476" ><div class="nc_tweetContainer swp_share_button swp_twitter" data-network="twitter"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://twitter.com/intent/tweet?text=Engineering+Intelligence+Through+Data+Visualization+at+Uber&url=https%3A%2F%2Fubr.to%2F2MeNdve&via=ubereng" data-link="https://twitter.com/intent/tweet?text=Engineering+Intelligence+Through+Data+Visualization+at+Uber&url=https%3A%2F%2Fubr.to%2F2MeNdve&via=ubereng"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_twitter_icon"></i><span class="swp_share">Tweet</span></span></span><span class="swp_count">2</span></a></div><div class="nc_tweetContainer swp_share_button swp_facebook" data-network="facebook"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://www.facebook.com/share.php?u=https%3A%2F%2Fubr.to%2F2MeNdve" data-link="https://www.facebook.com/share.php?u=https%3A%2F%2Fubr.to%2F2MeNdve"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_facebook_icon"></i><span class="swp_share">Share</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button swp_linkedin" data-network="linkedin"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fubr.to%2F2MeNdve" data-link="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fubr.to%2F2MeNdve"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_linkedin_icon"></i><span class="swp_share">Share</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button swp_hacker_news" data-network="hacker_news"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fubr.to%2F2MeNdve&t=Engineering%20Intelligence%20Through%20Data%20Visualization%20at%20Uber" data-link="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fubr.to%2F2MeNdve&t=Engineering%20Intelligence%20Through%20Data%20Visualization%20at%20Uber"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_hacker_news_icon"></i><span class="swp_share">Vote</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button swp_reddit" data-network="reddit"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://www.reddit.com/submit?url=https%3A%2F%2Fubr.to%2F2MeNdve" data-link="https://www.reddit.com/submit?url=https%3A%2F%2Fubr.to%2F2MeNdve"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_reddit_icon"></i><span class="swp_share">Reddit</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button swp_whatsapp" data-network="whatsapp"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fubr.to%2F2MeNdve" data-link="https://api.whatsapp.com/send?text=https%3A%2F%2Fubr.to%2F2MeNdve"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_whatsapp_icon"></i><span class="swp_share">WhatsApp</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button total_shares total_sharesalt" ><span class="swp_count ">2 <span class="swp_label">Shares</span></span></div></div><p>In early 2015 we started an official data visualization team at Uber. The idea behind it: deliver intelligence through crafting visual exploratory data analysis tools for Uber’s datasets. Every day, Uber manages billions of GPS locations. Every minute, our platform handles millions of mobile events. Every time we don’t use technology to analyze and interpret this information is an opportunity missed to better understand our business.</p>
+<p><span style="font-weight: 400;">Since its inception, the data visualization team in <a href="http://t.uber.com/join-uber-eng" target="_blank" rel="noopener noreferrer">Uber Engineering</a> has grown from myself and one engineer to a fully stacked team of 15. The skills of <a href="http://t.uber.com/software-data-eng" target="_blank" rel="noopener noreferrer">data visualization specialists</a> span from computer graphics to information design, covering <a href="http://t.uber.com/UI-data-eng" target="_blank" rel="noopener noreferrer">creative technology and web platform development</a> as well.  Our team focuses on areas from visual analytics to mapping, and framework development to public-facing data visualizations.</span></p>
+<p><span style="font-weight: 400;">Let’s see what each of these areas do through some of our work:</span></p>
+<h3><span style="font-weight: 400;">Visual Analytics: Making Data Actionable at Uber </span></h3>
+<figure id="attachment_479" aria-describedby="caption-attachment-479" style="width: 600px" class="wp-caption aligncenter"><a href="http://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/xp_platform_example.gif" target="_blank" rel="noopener noreferrer"><img class="wp-image-479" src="http://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/xp_platform_example.gif" alt="xp_platform_example" width="600" height="375" /></a><figcaption id="caption-attachment-479" class="wp-caption-text">Table and confidence interval visualizations add functionality to our A/B testing platform, Morpheus.</figcaption></figure>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Visual analytics mostly consists of abstract data visualizations. This refers to visualization work where the data has no inherent spatial structure. Opposed to this notion is scientific visualization, where visualization depicts data coming from the physical world (maps, 3D physical structures, etc.) Most visual analytics work in this case relates to reporting, dashboarding, and real-time analytics in charts and networks. <a href="http://t.uber.com/join-data-viz" target="_blank" rel="noopener noreferrer">Our team</a> powers the visualization layers on most business insight applications and business data exploration. Other areas powered by our visualization work include our A/B testing platform and our internal, large-scale machine learning platform.</span></p>
+<p><span style="font-weight: 400;">Our team enforces building reusable components as we create these applications. We recently open sourced </span><a href="https://github.com/uber/react-vis" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">react-vis</span></a><span style="font-weight: 400;">, a <a href="http://facebook.github.io/react/" target="_blank" rel="noopener noreferrer">React</a> and <a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3</a>-powered visualization library that provides a <a href="http://jsx.github.io/" target="_blank" rel="noopener noreferrer">JSX</a>-based, domain-specific language to compose charts from visual axes, chart types, and other basic visual elements. It empowers developers to declaratively shape the visualization they’d like to use with their dataset in a React- and JSX-friendly way. </span></p>
+<p><span style="font-weight: 400;">We’re working on similar efforts for mapping.</span></p>
+<h3><span style="font-weight: 400;">Mapping: Rich Exploratory Data</span></h3>
+<p><span style="font-weight: 400;">Map-based information is one of our biggest and richest assets at Uber. The billions of GPS points handled by our platform every day in real-time pose atypical challenges for real-time mapping visualizations and in-browser, data-dense visualizations.</span></p>
+<figure id="attachment_481" aria-describedby="caption-attachment-481" style="width: 600px" class="wp-caption aligncenter"><a href="http://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/blog_arcs.gif" target="_blank" rel="noopener noreferrer"><img loading="lazy" class="wp-image-481" src="http://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/blog_arcs.gif" alt="Dragging the cursor over a given radius area reveals distribution dropoffs in real-time." width="600" height="319" /></a><figcaption id="caption-attachment-481" class="wp-caption-text">Dragging the cursor over a given radius area reveals distributions of Uber dropoffs in real-time.</figcaption></figure>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">We develop multiple mapping applications tailored to different customers. One type of customer is the general managers and City Ops teams in the <a href="https://www.uber.com/cities/" target="_blank" rel="noopener noreferrer">400+ cities</a> where Uber operates. These folks need to have in-the-moment information of the current supply and demand distribution. They might also need access to aggregated data to better understand the city’s market for a marketing campaign. Another customer is data science, which needs rich exploratory interfaces for multidimensional data (broken down by product, time, and geo). We build applications for them to slice and dice that information and get insights from our data.</span></p>
+<p><span style="font-weight: 400;">Our tech stack for these applications consists on a few libraries that we developed and <a href="http://uber.github.io/" target="_blank" rel="noopener noreferrer">open sourced</a>. </span><a href="https://github.com/uber/react-map-gl" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">react-map-gl</span></a><span style="font-weight: 400;"> provides a React-friendly layer on top of MapboxGL, a library from Mapbox that we use extensively at Uber. </span><a href="https://github.com/uber/deck.gl" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">deck.gl</span></a><span style="font-weight: 400;"> provides an interface for creating WebGL-powered layers that can be put on top of a map or used standalone for creating abstract data visualizations.</span></p>
+<figure id="attachment_482" aria-describedby="caption-attachment-482" style="width: 600px" class="wp-caption aligncenter"><a href="http://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/allenkey.gif" target="_blank" rel="noopener noreferrer"><img loading="lazy" class="wp-image-482" src="http://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/allenkey.gif" alt="deck.gl and react-map-gl provide WebGL interfaces to create data-dense mapping applications." width="600" height="425" /></a><figcaption id="caption-attachment-482" class="wp-caption-text">deck.gl and react-map-gl provide WebGL interfaces to create data-dense mapping applications.</figcaption></figure>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">But all this technology can be used in creative ways as well. A strong part of data visualization is visual storytelling and data art and illustration.</span></p>
+<h3><span style="font-weight: 400;">Public Facing: Data Storytelling</span></h3>
+<p><span style="font-weight: 400;">There are <a href="https://newsroom.uber.com/us-california/its-a-beautiful-pool-day-in-the-neighborhood/" target="_blank" rel="noopener noreferrer">many creative ways to tell the story of Uber</a> with data visualization. We can create visual narratives around topics like safety, efficiency, traffic, or Uber’s role in the public-transit network.</span></p>
+<p><span style="font-weight: 400;">We recently created a data visualization that explores how uberPOOL can have an impact in making cities’ transportation much more efficient. Behind </span><a href="https://www.ted.com/talks/travis_kalanick_uber_s_plan_to_get_more_people_into_fewer_cars" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Travis Kalanick in his TED Talk</span></a><span style="font-weight: 400;">, you’ll see the data visualization we crafted to show traffic per street segment with and without uberPOOL, demonstrating POOL’s ability to make cities smarter by reducing traffic.</span></p>
+<figure id="attachment_483" aria-describedby="caption-attachment-483" style="width: 600px" class="wp-caption aligncenter"><a href="http://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/tedtalk.gif" target="_blank" rel="noopener noreferrer"><img loading="lazy" class="wp-image-483 size-full" src="http://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/tedtalk.gif" alt="Left: SF without UberPOOL experiences traffic congestion downtown. Right: POOL moves the same number of people in smarter way." width="600" height="338" /></a><figcaption id="caption-attachment-483" class="wp-caption-text">Left: SF without uberPOOL experiences traffic congestion downtown. Right: POOL moves the same number of people in smarter way.</figcaption></figure>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">We continue working on other visual narratives. This area of work has an interesting mix of data journalism paired with data art and illustration that creates challenges. Data handling is as challenging as the work we do for our internal visual exploratory data analysis products, but aesthetics plays an important role—the visual stimulation and human digestibility is often a bigger priority than effective information design techniques.</span></p>
+<p><span style="font-weight: 400;">For example, we started collaborating with the design team to get branded videos for animated maps showing every car on trip with Uber for a full day, <a href="https://newsroom.uber.com/a-day-in-the-life-of-uber/" target="_blank" rel="noopener noreferrer">a day in the life of Uber</a>. The result is a WebGL application that runs server-side rendering for each frame and compiles it into a video. The application takes care of everything from the data gathering process (through </span><a href="https://github.com/apache/hive" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Hive</span></a><span style="font-weight: 400;">) to constructing the video with offline rendering techniques.</span></p>
+<p><i><span style="font-weight: 400;">A 3D immersive animated map shows a full day of anonymized Uber trips:</span></i></p>
+<p><i><span style="font-weight: 400;">San Francisco</span></i></p>
+<p><iframe loading="lazy" src="https://www.youtube.com/embed/SwPdy3vEQ5I?rel=0&amp;showinfo=0" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p><em>Los Angeles</em></p>
+<p><iframe loading="lazy" src="https://www.youtube.com/embed/EwJzUhhxi98?rel=0&amp;showinfo=0" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p><span style="font-weight: 400;">For some of this work we also developed a framework called </span><a href="https://github.com/uber/luma.gl" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">luma.gl</span></a><span style="font-weight: 400;">, focused on WebGL-based visualizations. It has been designed with modern technologies in mind: ES6, WebGL 2.0, and a component-based platform. This makes luma.gl interoperable with other popular libraries like stack.gl.</span></p>
+<h3><span style="font-weight: 400;">Want to Learn More?</span></h3>
+<p><span style="font-weight: 400;">At Uber, data is our biggest asset. We generate insight by using data to create visual exploratory data analysis tools, but data exposition of our business metrics also enables managers in all of our cities to make informed decisions about the business. If you’re interested in taking on some these challenges with our team and <a href="http://people.uber.com/eng/" target="_blank" rel="noopener noreferrer">Uber Engineering</a>, check out our </span><a href="http://t.uber.com/join-data-viz" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">data viz engineering openings</span></a><span style="font-weight: 400;"> and reach out to </span><a href="mailto:data-viz@uber.com"><span style="font-weight: 400;">data-viz@uber.com</span></a><span style="font-weight: 400;">. We’d love to hear from you.</span></p>
+<p><em>Like what you&#8217;re reading? <a href="https://eng.uber.com/eng-blog-signup/" target="_blank" rel="noopener noreferrer">Sign up for our newsletter </a>for updates from the Uber Engineering blog.</em></p>
+<div id="wpdevar_comment_1" style="width:100%;text-align:left;">
+		<span style="padding: 10px;font-size:21px;font-family:ff-clan-web-pro,Helvetica Neue,Helvetica,sans-serif;color:#000000;">Comments</span>
+		<div class="fb-comments" data-href="https://eng.uber.com/data-visualization-intelligence/" data-order-by="social" data-numposts="5" data-width="100%" style="display:block;"></div></div><style>#wpdevar_comment_1 span,#wpdevar_comment_1 iframe{width:100% !important;} #wpdevar_comment_1 iframe{max-height: 100% !important;}</style><div class="swp_social_panel swp_horizontal_panel swp_flat_fresh  swp_default_dark_gray_outlines swp_other_medium_gray_outlines swp_individual_full_color scale-100 scale-full_width" data-min-width="1100" data-float-color="#000" data-float="none" data-float-mobile="none" data-transition="slide" data-post-id="476" ><div class="nc_tweetContainer swp_share_button swp_twitter" data-network="twitter"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://twitter.com/intent/tweet?text=Engineering+Intelligence+Through+Data+Visualization+at+Uber&url=https%3A%2F%2Fubr.to%2F2MeNdve&via=ubereng" data-link="https://twitter.com/intent/tweet?text=Engineering+Intelligence+Through+Data+Visualization+at+Uber&url=https%3A%2F%2Fubr.to%2F2MeNdve&via=ubereng"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_twitter_icon"></i><span class="swp_share">Tweet</span></span></span><span class="swp_count">2</span></a></div><div class="nc_tweetContainer swp_share_button swp_facebook" data-network="facebook"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://www.facebook.com/share.php?u=https%3A%2F%2Fubr.to%2F2MeNdve" data-link="https://www.facebook.com/share.php?u=https%3A%2F%2Fubr.to%2F2MeNdve"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_facebook_icon"></i><span class="swp_share">Share</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button swp_linkedin" data-network="linkedin"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fubr.to%2F2MeNdve" data-link="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fubr.to%2F2MeNdve"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_linkedin_icon"></i><span class="swp_share">Share</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button swp_hacker_news" data-network="hacker_news"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fubr.to%2F2MeNdve&t=Engineering%20Intelligence%20Through%20Data%20Visualization%20at%20Uber" data-link="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fubr.to%2F2MeNdve&t=Engineering%20Intelligence%20Through%20Data%20Visualization%20at%20Uber"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_hacker_news_icon"></i><span class="swp_share">Vote</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button swp_reddit" data-network="reddit"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://www.reddit.com/submit?url=https%3A%2F%2Fubr.to%2F2MeNdve" data-link="https://www.reddit.com/submit?url=https%3A%2F%2Fubr.to%2F2MeNdve"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_reddit_icon"></i><span class="swp_share">Reddit</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button swp_whatsapp" data-network="whatsapp"><a class="nc_tweet swp_share_link" rel="nofollow noreferrer noopener" target="_blank" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fubr.to%2F2MeNdve" data-link="https://api.whatsapp.com/send?text=https%3A%2F%2Fubr.to%2F2MeNdve"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw swp_whatsapp_icon"></i><span class="swp_share">WhatsApp</span></span></span></span></a></div><div class="nc_tweetContainer swp_share_button total_shares total_sharesalt" ><span class="swp_count ">2 <span class="swp_label">Shares</span></span></div></div><div class="swp-content-locator"></div>        </div>
+
+
+        <footer>
+                                <div class="td-post-source-tags">
+                        <ul class="td-tags td-post-small-box clearfix">
+                            <li><span>TAGS</span></li>
+                                                                <li><a href="https://eng.uber.com/tag/d3-js/">d3.js</a></li>
+                                                                <li><a href="https://eng.uber.com/tag/dashboard/">Dashboard</a></li>
+                                                                <li><a href="https://eng.uber.com/tag/data/">Data</a></li>
+                                                                <li><a href="https://eng.uber.com/tag/data-visualization/">Data Visualization</a></li>
+                                                                <li><a href="https://eng.uber.com/tag/jsx/">JSX</a></li>
+                                                                <li><a href="https://eng.uber.com/tag/react/">React</a></li>
+                                                                <li><a href="https://eng.uber.com/tag/uber-data/">Uber Data</a></li>
+                                                    </ul>
+                    </div>
+                                <div class="td-block-row td-post-next-prev">
+                                                    <div class="td-block-span6 td-post-prev-post">
+                                <div class="td-post-next-prev-content">
+                                    <span>Previous article</span>
+                                    <a href="https://eng.uber.com/building-tincup-microservice-implementation/">Rewriting Uber Engineering: The Opportunities Microservices Provide</a>
+                                </div>
+                            </div>
+                        
+                        <div class="td-next-prev-separator"></div>
+
+                                            <div class="td-block-span6 td-post-next-post">
+                            <div class="td-post-next-prev-content">
+                                <span>Next article</span>
+                                <a href="https://eng.uber.com/moovit/">Get Around in 22 Countries With Moovit and Uber</a>
+                            </div>
+                        </div>
+                                        </div>
+            
+            <!-- author box -->
+            
+			<div class="coauthors coauthors--author-box">
+				<div class="author-box-wrap coauthors__author-box">
+					<a href="https://eng.uber.com/author/nicouber-com/">
+						<img data-del="avatar" src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/uploads/2018/12/wdtest_05a7ce5e-3ae7-4d34-b813-46f4589ac809-jRvk5-150x150.jpg' class='avatar pp-user-avatar avatar-96 photo ' height='96' width='96'/>					</a>
+
+					<div class="desc">
+						<div class="td-author-name vcard author">
+							<span class="fn"><a href="https://eng.uber.com/author/nicouber-com/">Nicolas Garcia Belmonte</a></span>
+						</div>
+						
+						<div class="td-author-description">
+							Nicolas Garcia Belmonte is Director of Engineering, Urban Computing and Visualization, at Uber.						</div>
+
+						<div class="td-author-social">
+													</div>
+
+						<div class="clearfix"></div>
+					</div><!-- .desc -->
+				</div><!-- .author-box-wrap .coauthors__author-box -->
+			</div><!-- .coauthors .coauthors--author-box -->
+
+			        </footer>
+
+    </article> <!-- /.post -->
+
+    <div class="comments" id="comments">
+            </div> <!-- /.content -->
+                                    </div>
+                            </div>
+                            <div class="td-pb-span4 td-main-sidebar" role="complementary">
+                                <div class="td-ss-main-sidebar">
+                                    <aside id="mc4wp_form_widget-2" class="td_block_template_2 widget mc4wp_form_widget-2 widget_mc4wp_form_widget"><script>(function() {
+	window.mc4wp = window.mc4wp || {
+		listeners: [],
+		forms: {
+			on: function(evt, cb) {
+				window.mc4wp.listeners.push(
+					{
+						event   : evt,
+						callback: cb
+					}
+				);
+			}
+		}
+	}
+})();
+</script><!-- Mailchimp for WordPress v4.8.7 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-532 mc4wp-form-basic" method="post" data-id="532" data-name="Default sign-up form" ><div class="mc4wp-form-fields"><label style="font-size: 16px; font-family: 'UberMove', 'OpenSans', 'Helvetica Neue', Helvetica , sans-serif; font-weight: 500; padding-bottom: 12px;">Sign up for Uber Engineering updates:</label>
+<div role="search">
+  <input class=td-widget-search-input" type="email" name="email" placeholder="Your email address" />
+  <input class="wpb_button wpb_btn-inverse btn" type="submit" value="Subscribe" />
+</div></div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1658117411" /><input type="hidden" name="_mc4wp_form_id" value="532" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" /><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin --></aside><aside id="custom_html-3" class="widget_text td_block_template_2 widget custom_html-3 widget_custom_html"><div class="textwidget custom-html-widget"><aside class="td_block_template_2 widget widget_categories">
+	<h4 class="td-block-title"><span>Categories</span><br></h4>
+	<span class="cat-item cat-item-844"><a href="https://eng.uber.com/category/articles/ai/">AI</a>
+</span><br>
+	<span class="cat-item cat-item-18"><a href="https://eng.uber.com/category/announcement/">Announcement</a>
+</span><br>
+	<span class="cat-item cat-item-8"><a href="https://eng.uber.com/category/articles/architecture/">Architecture</a>
+</span><br>
+	<span class="cat-item cat-item-24"><a href="https://eng.uber.com/category/articles/culture/">Culture</a>
+</span><br>
+	<span class="cat-item cat-item-3403"><a href="https://eng.uber.com/category/articles/developers/">Developers</a>
+</span><br>
+	<span class="cat-item cat-item-54"><a href="https://eng.uber.com/category/articles/events-article/">Events</a>
+</span><br>
+	<span class="cat-item cat-item-32"><a href="https://eng.uber.com/category/articles/general-engineering/">General Engineering</a>
+</span><br>
+	<span class="cat-item cat-item-22"><a href="https://eng.uber.com/category/articles/mobile/">Mobile</a>
+</span><br>
+	<span class="cat-item cat-item-5899"><a href="https://eng.uber.com/category/articles/open-source-articles/">Open Source</a>
+</span><br>
+	<span class="cat-item cat-item-17"><a href="https://eng.uber.com/category/articles/team-profile/">Team Profile</a>
+</span><br>
+	<span class="cat-item cat-item-21"><a href="https://eng.uber.com/category/articles/uberdata/">Uber Data</a>
+</span><br>
+</aside></div></aside>                                </div>
+                            </div>
+                                    </div> <!-- /.td-pb-row -->
+        </article> <!-- /.post -->
+    </div> <!-- /.td-container -->
+</div> <!-- /.td-main-content-wrap -->
+
+<footer id="footer" class="site-footer">
+	<div class="site-footer__inner">
+		<div class="site-footer__row-1">
+			<div class="site-footer__logo">
+				<span class="site-footer__logo-title"><svg width="52" height="18" viewBox="0 0 52 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="uber-logo-title uber-logo-desc"><desc id="uber-logo-title">Uber logo</desc><path d="M2.696 10.568V0.199999H0.176V10.712C0.176 14.672 2.936 17.288 6.536 17.288C8.288 17.288 9.848 16.616 10.976 15.44V17H13.472V0.199999H10.952V10.568C10.952 13.232 9.152 15.032 6.824 15.032C4.472 15.032 2.696 13.28 2.696 10.568ZM15.9494 17H18.3494V15.464C19.4534 16.592 21.0134 17.288 22.7174 17.288C26.3174 17.288 29.1494 14.432 29.1494 10.904C29.1494 7.352 26.3174 4.496 22.7174 4.496C21.0134 4.496 19.4774 5.192 18.3734 6.32V0.199999H15.9494V17ZM18.3254 10.904C18.3254 8.528 20.2214 6.656 22.5494 6.656C24.8534 6.656 26.7494 8.528 26.7494 10.904C26.7494 13.256 24.8534 15.152 22.5494 15.152C20.1974 15.152 18.3254 13.256 18.3254 10.904ZM30.5872 10.88C30.5872 14.528 33.4192 17.264 37.0912 17.264C39.3232 17.264 41.1472 16.28 42.3712 14.648L40.6192 13.352C39.7072 14.576 38.5072 15.152 37.0912 15.152C35.0272 15.152 33.3712 13.664 33.0352 11.672H42.9952V10.88C42.9952 7.232 40.4032 4.52 36.8752 4.52C33.2992 4.52 30.5872 7.424 30.5872 10.88ZM36.8272 6.632C38.6272 6.632 40.1392 7.88 40.5472 9.752H33.0832C33.5152 7.88 35.0272 6.632 36.8272 6.632ZM51.0628 6.92V4.664H50.2228C48.8788 4.664 47.8948 5.288 47.2948 6.272V4.76H44.8948V17H47.3188V10.04C47.3188 8.144 48.4708 6.92 50.0547 6.92H51.0628Z" fill="#FFFFFF"></path></svg><span>Engineering</span></span>
+			</div><!-- .site-footer__logo -->
+
+			<div class="site-footer__ctas">
+				<div class="site-footer__cta">
+					<a href="https://get.uber.com/sign-up" class="site-footer__cta-btn btn desktop-only">Sign up to ride<span class="chevron" aria-hidden="true"><svg class="" height="15" viewBox="0 0 240 217" width="14" xmlns="http://www.w3.org/2000/svg"><title id="uber-chevron-title">Uber Chevron Arrow</title><desc id="uber-chevron-desc">A chevron arrow that was created with the Uber Move font</desc><path fill="currentColor" d="M160.592.2l78.912 108-78.912 108h-32.256l69.12-94.176H.752V94.376h196.704L128.336.2z"></path></svg></span></a>
+					<a href="https://uber.tlnk.io/serve?action=click&amp;publisher_id=47734&amp;site_id=17688&amp;site_id_android=26744&amp;sub1=Download_app_footer" class="site-footer__cta-btn btn mobile-only">Get the App<span class="chevron" aria-hidden="true"><svg class="" height="15" viewBox="0 0 240 217" width="14" xmlns="http://www.w3.org/2000/svg"><title id="uber-chevron-title">Uber Chevron Arrow</title><desc id="uber-chevron-desc">A chevron arrow that was created with the Uber Move font</desc><path fill="currentColor" d="M160.592.2l78.912 108-78.912 108h-32.256l69.12-94.176H.752V94.376h196.704L128.336.2z"></path></svg></span></a>
+				</div><!--  .site-footer__cta -->
+
+				<div class="site-footer__cta">
+					<a href="https://www.uber.com/signup/drive" class="site-footer__cta-btn btn-outlined desktop-only">Sign up to drive<span class="chevron" aria-hidden="true"><svg class="" height="15" viewBox="0 0 240 217" width="14" xmlns="http://www.w3.org/2000/svg"><title id="uber-chevron-title">Uber Chevron Arrow</title><desc id="uber-chevron-desc">A chevron arrow that was created with the Uber Move font</desc><path fill="currentColor" d="M160.592.2l78.912 108-78.912 108h-32.256l69.12-94.176H.752V94.376h196.704L128.336.2z"></path></svg></span></a>
+					<a href="https://www.uber.com/signup/drive" class="site-footer__cta-btn btn-outlined mobile-only">Become a Driver<span class="chevron" aria-hidden="true"><svg class="" height="15" viewBox="0 0 240 217" width="14" xmlns="http://www.w3.org/2000/svg"><title id="uber-chevron-title">Uber Chevron Arrow</title><desc id="uber-chevron-desc">A chevron arrow that was created with the Uber Move font</desc><path fill="currentColor" d="M160.592.2l78.912 108-78.912 108h-32.256l69.12-94.176H.752V94.376h196.704L128.336.2z"></path></svg></span></a>
+				</div><!-- .site-footer__cta -->
+			</div><!-- .site-footer__ctas -->
+		</div><!-- .site-footer__row-1 -->
+
+		<div class="site-footer__row-2">
+			<div class="site-footer__contact-us-menu">
+				<p class="site-footer__menu-title">Contact Us</p>
+				<ul id="menu-contact-us-footer" class="site-footer__menu site-footer__menu--contact-us unlist"><li id="menu-item-5301" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-first menu-item-5301"><a href="mailto:ubereng@uber.com">ubereng@uber.com</a></li>
+<li id="menu-item-5302" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5302"><a href="https://twitter.com/ubereng">@ubereng</a></li>
+<li id="menu-item-5388" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5388"><a href="https://www.facebook.com/uberengineering/">UberEngineering</a></li>
+<li id="menu-item-5648" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5648"><a href="https://linkedin.com/showcase/uberengineering">Uber Engineering</a></li>
+<li id="menu-item-5389" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5389"><a href="https://www.youtube.com/uberengineering">UberEngineering</a></li>
+<li id="menu-item-5840" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5840"><a href="http://instagram.com/uberengineering">UberEngineering</a></li>
+</ul>			</div><!-- .site-footer__contact-us-menu -->
+
+			<div class="site-footer__categories-menu">
+				<p class="site-footer__menu-title">Uber Engineering Blog Categories</p>
+				<ul id="menu-categories-footer" class="site-footer__menu site-footer__menu--categories unlist"><li id="menu-item-6189" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-first menu-item-6189"><a href="https://eng.uber.com/category/articles/ai/">AI</a></li>
+<li id="menu-item-6187" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6187"><a href="https://eng.uber.com/category/articles/architecture/">Architecture</a></li>
+<li id="menu-item-6186" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6186"><a href="https://eng.uber.com/category/articles/culture/">Culture</a></li>
+<li id="menu-item-6184" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6184"><a href="https://eng.uber.com/category/articles/general-engineering/">General Engineering</a></li>
+<li id="menu-item-6188" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6188"><a href="https://eng.uber.com/category/articles/mobile/">Mobile</a></li>
+<li id="menu-item-6183" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-6183"><a href="https://eng.uber.com/category/articles/open-source-articles/">Open Source</a></li>
+<li id="menu-item-6185" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-6185"><a href="https://eng.uber.com/category/articles/uberdata/">Uber Data</a></li>
+</ul>			</div><!-- .site-footer__categories-menu -->
+
+			<div class="site-footer__links-menu">
+				<p class="site-footer__menu-title">Uber Links</p>
+				<ul id="menu-uber-link-footer-1" class="site-footer__menu site-footer__menu--links unlist"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-first menu-item-5290"><a href="https://uber.github.io/">Uber Open Source</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6182"><a href="https://eng.uber.com/research">Uber Research</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5283"><a href="https://www.uber.com/">Uber.com</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5284"><a href="https://www.ubereats.com/">Uber Eats</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5286"><a href="https://www.uber.com/business?mainSite=true">Uber for Business</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5287"><a href="https://help.uber.com/">Help</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5288"><a href="https://uber.com/newsroom/">Newsroom</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5289"><a href="https://www.uber.com/careers/">Careers</a></li>
+</ul>			</div><!-- .site-footer__links-menu -->
+		</div><!-- .site-footer__row-2 -->
+
+		<div class="site-footer__row-3">
+			<p class="site-footer__copyright">&copy; 2022 Uber Technologies Inc.</p>
+
+			<ul id="menu-sub-footer-menu" class="site-footer__sub-menu unlist"><li id="menu-item-5303" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-first menu-item-5303"><a href="https://www.uber.com/legal/privacy/users/en/">Privacy Policy</a></li>
+<li id="menu-item-5304" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5304"><a href="https://www.uber.com/legal/terms/us/">Terms and Conditions</a></li>
+</ul>		</div><!-- .site-footer__row-3 -->
+	</div><!-- .site-footer__inner -->
+</footer><!-- .site-footer -->
+
+        <div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0&appId=1471833949804354&autoLogAppEvents=1"></script>	
+    <script>(function() {function maybePrefixUrlField() {
+	if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {
+		this.value = "http://" + this.value;
+	}
+}
+
+var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
+if (urlFields) {
+	for (var j=0; j < urlFields.length; j++) {
+		urlFields[j].addEventListener('blur', maybePrefixUrlField);
+	}
+}
+})();</script>                <div class="td-more-articles-box">
+                    <i class="td-icon-close td-close-more-articles-box"></i>
+                    <span class="td-more-articles-box-title">MORE STORIES</span>
+                    <div class="td-content-more-articles-box">
+
+                    
+        <div class="td_module_8 td_module_wrap">
+
+            <div class="item-details">
+                <h3 class="entry-title td-module-title"><a href="https://eng.uber.com/mezzanine-codebase-data-migration/" rel="bookmark" title="Project Mezzanine: The Great Migration">Project Mezzanine: The Great Migration</a></h3>
+                <div class="td-module-meta-info">
+                    								<div class="coauthors coauthors--byline">
+															<a href="https://eng.uber.com/author/renesuber-com/" class="author url fn" title="Post by Rene Schmidt" rel="author">
+							Rene Schmidt</a>
+								</div>
+			                    <span class="td-post-date"><time class="entry-date updated td-module-date" datetime="2015-07-28T08:20:24-07:00" >July 28, 2015</time></span>                                    </div>
+            </div>
+
+            
+        </div>
+
+        
+        <div class="td_module_8 td_module_wrap">
+
+            <div class="item-details">
+                <h3 class="entry-title td-module-title"><a href="https://eng.uber.com/data-visualization-city-movement/" rel="bookmark" title="The Pulse of a City: How People Move Using Uber Engineering">The Pulse of a City: How People Move Using Uber Engineering</a></h3>
+                <div class="td-module-meta-info">
+                    								<div class="coauthors coauthors--byline">
+															<a href="https://eng.uber.com/author/nicouber-com/" class="author url fn" title="Post by Nicolas Garcia Belmonte" rel="author">
+							Nicolas Garcia Belmonte</a>
+								</div>
+			                    <span class="td-post-date"><time class="entry-date updated td-module-date" datetime="2015-08-18T09:42:21-07:00" >August 18, 2015</time></span>                                    </div>
+            </div>
+
+            
+        </div>
+
+        
+        <div class="td_module_8 td_module_wrap">
+
+            <div class="item-details">
+                <h3 class="entry-title td-module-title"><a href="https://eng.uber.com/schemaless-part-one-mysql-datastore/" rel="bookmark" title="Designing Schemaless, Uber Engineering&#8217;s Scalable Datastore Using MySQL">Designing Schemaless, Uber Engineering&#8217;s Scalable Datastore Using MySQL</a></h3>
+                <div class="td-module-meta-info">
+                    								<div class="coauthors coauthors--byline">
+															<a href="https://eng.uber.com/author/jakobuber-com/" class="author url fn" title="Post by Jakob Holdgaard Thomsen" rel="author">
+							Jakob Holdgaard Thomsen</a>
+								</div>
+			                    <span class="td-post-date"><time class="entry-date updated td-module-date" datetime="2016-01-12T09:28:29-08:00" >January 12, 2016</time></span>                                    </div>
+            </div>
+
+            
+        </div>
+
+                            </div>
+                </div>
+
+    <!--
+
+        Theme: Newspaper by tagDiv.com 2022
+        Version: 11.4.3 (rara)
+        Deploy mode: deploy
+        Speed booster: v4.9.3
+
+        uid: 62d4dd238491d
+    -->
+
+    
+<!-- Custom css from theme panel -->
+<style type="text/css" media="screen">
+/* custom css theme panel */
+@media (min-width: 768px) {
+    .td-header-style-2 .td-header-menu-wrap-full {
+        display: none;
+        height: auto !important;
+    }
+}
+
+.single-research .fb-comments,
+.single-research #wpdevar_comment_1 {
+    display: none !important;
+}
+</style>
+
+<link rel='stylesheet' id='dashicons-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/css/dashicons.min.css?ver=6.0' type='text/css' media='all' />
+<link rel='stylesheet' id='thickbox-css'  href='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/js/thickbox/thickbox.css?ver=6.0' type='text/css' media='all' />
+<script type='text/javascript' src='https://eng.uber.comdist/js/shared.js?ver=1.0.0' id='uber_eng_regional_office_shared-js'></script>
+<script type='text/javascript' src='https://eng.uber.comdist/js/frontend.js?ver=1.0.0' id='uber_eng_regional_office_frontend-js'></script>
+<script type='text/javascript' id='ppress-frontend-script-js-extra'>
+/* <![CDATA[ */
+var pp_ajax_form = {"ajaxurl":"https:\/\/eng.uber.com\/wp-admin\/admin-ajax.php","confirm_delete":"Are you sure?","deleting_text":"Deleting...","deleting_error":"An error occurred. Please try again.","nonce":"133ca5a0d4","disable_ajax_form":"false"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/wp-user-avatar/assets/js/frontend.min.js?ver=3.2.15' id='ppress-frontend-script-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1' id='jquery-ui-core-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.1' id='jquery-ui-datepicker-js'></script>
+<script type='text/javascript' id='jquery-ui-datepicker-js-after'>
+jQuery(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+</script>
+<script type='text/javascript' id='social_warfare_script-js-extra'>
+/* <![CDATA[ */
+var socialWarfare = {"addons":["pro"],"post_id":"476","variables":{"emphasizeIcons":"0","powered_by_toggle":false,"affiliate_link":"https:\/\/warfareplugins.com"},"floatBeforeContent":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/social-warfare/assets/js/script.min.js?ver=4.3.0' id='social_warfare_script-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/themes/Newspaper-child/dist/js/frontend.min.js?ver=1.0.9' id='frontend-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/js/underscore.min.js?ver=1.13.3' id='underscore-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/td-cloud-library/assets/js/js_posts_autoload.min.js?ver=b2e02a383c117d2c27b181e37c1c9e0e' id='tdb_js_posts_autoload-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/td-composer/legacy/Newspaper/js/tagdiv_theme.min.js?ver=11.4.3' id='td-site-min-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/js/comment-reply.min.js?ver=6.0' id='comment-reply-js'></script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/td-cloud-library/assets/js/js_files_for_front.min.js?ver=b2e02a383c117d2c27b181e37c1c9e0e' id='tdb_js_files_for_front-js'></script>
+<script type='text/javascript' id='thickbox-js-extra'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"https:\/\/eng.uber.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-includes/js/thickbox/thickbox.js?ver=3.1-20121105' id='thickbox-js'></script>
+<script type='text/javascript' defer src='https://1fykyq3mdn5r21tpna3wkdyi-wpengine.netdna-ssl.com/wp-content/plugins/mailchimp-for-wp/assets/js/forms.js?ver=4.8.7' id='mc4wp-forms-api-js'></script>
+<script type="text/javascript"> var swp_nonce = "f9db8fc0a2";function parentIsEvil() { var html = null; try { var doc = top.location.pathname; } catch(err){ }; if(typeof doc === "undefined") { return true } else { return false }; }; if (parentIsEvil()) { top.location = self.location.href; };var url = "https://eng.uber.com/data-visualization-intelligence/";if(url.indexOf("stfi.re") != -1) { var canonical = ""; var links = document.getElementsByTagName("link"); for (var i = 0; i < links.length; i ++) { if (links[i].getAttribute("rel") === "canonical") { canonical = links[i].getAttribute("href")}}; canonical = canonical.replace("?sfr=1", "");top.location = canonical; console.log(canonical);};var swpFloatBeforeContent = false; var swp_ajax_url = "https://eng.uber.com/wp-admin/admin-ajax.php"; var swp_post_id = "476";var swpClickTracking = true; swpPinIt={"enabled":false};</script>
+<!-- JS generated by theme -->
+
+<script>
+    
+
+                jQuery().ready(function jQuery_ready() {
+                    tdAjaxCount.tdGetViewsCountsAjax("post","[476]");
+                });
+            
+</script>
+
+
+<!-- Header style compiled by theme -->
+
+<style>
+    
+.td-header-wrap .black-menu .sf-menu > .current-menu-item > a,
+    .td-header-wrap .black-menu .sf-menu > .current-menu-ancestor > a,
+    .td-header-wrap .black-menu .sf-menu > .current-category-ancestor > a,
+    .td-header-wrap .black-menu .sf-menu > li > a:hover,
+    .td-header-wrap .black-menu .sf-menu > .sfHover > a,
+    .td-header-style-12 .td-header-menu-wrap-full,
+    .sf-menu > .current-menu-item > a:after,
+    .sf-menu > .current-menu-ancestor > a:after,
+    .sf-menu > .current-category-ancestor > a:after,
+    .sf-menu > li:hover > a:after,
+    .sf-menu > .sfHover > a:after,
+    .td-header-style-12 .td-affix,
+    .header-search-wrap .td-drop-down-search:after,
+    .header-search-wrap .td-drop-down-search .btn:hover,
+    input[type=submit]:hover,
+    .td-read-more a,
+    .td-post-category:hover,
+    .td-grid-style-1.td-hover-1 .td-big-grid-post:hover .td-post-category,
+    .td-grid-style-5.td-hover-1 .td-big-grid-post:hover .td-post-category,
+    .td_top_authors .td-active .td-author-post-count,
+    .td_top_authors .td-active .td-author-comments-count,
+    .td_top_authors .td_mod_wrap:hover .td-author-post-count,
+    .td_top_authors .td_mod_wrap:hover .td-author-comments-count,
+    .td-404-sub-sub-title a:hover,
+    .td-search-form-widget .wpb_button:hover,
+    .td-rating-bar-wrap div,
+    .td_category_template_3 .td-current-sub-category,
+    .dropcap,
+    .td_wrapper_video_playlist .td_video_controls_playlist_wrapper,
+    .wpb_default,
+    .wpb_default:hover,
+    .td-left-smart-list:hover,
+    .td-right-smart-list:hover,
+    .woocommerce-checkout .woocommerce input.button:hover,
+    .woocommerce-page .woocommerce a.button:hover,
+    .woocommerce-account div.woocommerce .button:hover,
+    #bbpress-forums button:hover,
+    .bbp_widget_login .button:hover,
+    .td-footer-wrapper .td-post-category,
+    .td-footer-wrapper .widget_product_search input[type="submit"]:hover,
+    .woocommerce .product a.button:hover,
+    .woocommerce .product #respond input#submit:hover,
+    .woocommerce .checkout input#place_order:hover,
+    .woocommerce .woocommerce.widget .button:hover,
+    .single-product .product .summary .cart .button:hover,
+    .woocommerce-cart .woocommerce table.cart .button:hover,
+    .woocommerce-cart .woocommerce .shipping-calculator-form .button:hover,
+    .td-next-prev-wrap a:hover,
+    .td-load-more-wrap a:hover,
+    .td-post-small-box a:hover,
+    .page-nav .current,
+    .page-nav:first-child > div,
+    .td_category_template_8 .td-category-header .td-category a.td-current-sub-category,
+    .td_category_template_4 .td-category-siblings .td-category a:hover,
+    #bbpress-forums .bbp-pagination .current,
+    #bbpress-forums #bbp-single-user-details #bbp-user-navigation li.current a,
+    .td-theme-slider:hover .slide-meta-cat a,
+    a.vc_btn-black:hover,
+    .td-trending-now-wrapper:hover .td-trending-now-title,
+    .td-scroll-up,
+    .td-smart-list-button:hover,
+    .td-weather-information:before,
+    .td-weather-week:before,
+    .td_block_exchange .td-exchange-header:before,
+    .td_block_big_grid_9.td-grid-style-1 .td-post-category,
+    .td_block_big_grid_9.td-grid-style-5 .td-post-category,
+    .td-grid-style-6.td-hover-1 .td-module-thumb:after,
+    .td-pulldown-syle-2 .td-subcat-dropdown ul:after,
+    .td_block_template_9 .td-block-title:after,
+    .td_block_template_15 .td-block-title:before,
+    div.wpforms-container .wpforms-form div.wpforms-submit-container button[type=submit] {
+        background-color: #276ef1;
+    }
+
+    .td_block_template_4 .td-related-title .td-cur-simple-item:before {
+        border-color: #276ef1 transparent transparent transparent !important;
+    }
+
+    .woocommerce .woocommerce-message .button:hover,
+    .woocommerce .woocommerce-error .button:hover,
+    .woocommerce .woocommerce-info .button:hover {
+        background-color: #276ef1 !important;
+    }
+    
+    
+    .td_block_template_4 .td-related-title .td-cur-simple-item,
+    .td_block_template_3 .td-related-title .td-cur-simple-item,
+    .td_block_template_9 .td-related-title:after {
+        background-color: #276ef1;
+    }
+
+    .woocommerce .product .onsale,
+    .woocommerce.widget .ui-slider .ui-slider-handle {
+        background: none #276ef1;
+    }
+
+    .woocommerce.widget.widget_layered_nav_filters ul li a {
+        background: none repeat scroll 0 0 #276ef1 !important;
+    }
+
+    a,
+    cite a:hover,
+    .td_mega_menu_sub_cats .cur-sub-cat,
+    .td-mega-span h3 a:hover,
+    .td_mod_mega_menu:hover .entry-title a,
+    .header-search-wrap .result-msg a:hover,
+    .td-header-top-menu .td-drop-down-search .td_module_wrap:hover .entry-title a,
+    .td-header-top-menu .td-icon-search:hover,
+    .td-header-wrap .result-msg a:hover,
+    .top-header-menu li a:hover,
+    .top-header-menu .current-menu-item > a,
+    .top-header-menu .current-menu-ancestor > a,
+    .top-header-menu .current-category-ancestor > a,
+    .td-social-icon-wrap > a:hover,
+    .td-header-sp-top-widget .td-social-icon-wrap a:hover,
+    .td-page-content blockquote p,
+    .td-post-content blockquote p,
+    .mce-content-body blockquote p,
+    .comment-content blockquote p,
+    .wpb_text_column blockquote p,
+    .td_block_text_with_title blockquote p,
+    .td_module_wrap:hover .entry-title a,
+    .td-subcat-filter .td-subcat-list a:hover,
+    .td-subcat-filter .td-subcat-dropdown a:hover,
+    .td_quote_on_blocks,
+    .dropcap2,
+    .dropcap3,
+    .td_top_authors .td-active .td-authors-name a,
+    .td_top_authors .td_mod_wrap:hover .td-authors-name a,
+    .td-post-next-prev-content a:hover,
+    .author-box-wrap .td-author-social a:hover,
+    .td-author-name a:hover,
+    .td-author-url a:hover,
+    .td_mod_related_posts:hover h3 > a,
+    .td-post-template-11 .td-related-title .td-related-left:hover,
+    .td-post-template-11 .td-related-title .td-related-right:hover,
+    .td-post-template-11 .td-related-title .td-cur-simple-item,
+    .td-post-template-11 .td_block_related_posts .td-next-prev-wrap a:hover,
+    .comment-reply-link:hover,
+    .logged-in-as a:hover,
+    #cancel-comment-reply-link:hover,
+    .td-search-query,
+    .td-category-header .td-pulldown-category-filter-link:hover,
+    .td-category-siblings .td-subcat-dropdown a:hover,
+    .td-category-siblings .td-subcat-dropdown a.td-current-sub-category,
+    .widget a:hover,
+    .td_wp_recentcomments a:hover,
+    .archive .widget_archive .current,
+    .archive .widget_archive .current a,
+    .widget_calendar tfoot a:hover,
+    .woocommerce a.added_to_cart:hover,
+    .woocommerce-account .woocommerce-MyAccount-navigation a:hover,
+    #bbpress-forums li.bbp-header .bbp-reply-content span a:hover,
+    #bbpress-forums .bbp-forum-freshness a:hover,
+    #bbpress-forums .bbp-topic-freshness a:hover,
+    #bbpress-forums .bbp-forums-list li a:hover,
+    #bbpress-forums .bbp-forum-title:hover,
+    #bbpress-forums .bbp-topic-permalink:hover,
+    #bbpress-forums .bbp-topic-started-by a:hover,
+    #bbpress-forums .bbp-topic-started-in a:hover,
+    #bbpress-forums .bbp-body .super-sticky li.bbp-topic-title .bbp-topic-permalink,
+    #bbpress-forums .bbp-body .sticky li.bbp-topic-title .bbp-topic-permalink,
+    .widget_display_replies .bbp-author-name,
+    .widget_display_topics .bbp-author-name,
+    .footer-text-wrap .footer-email-wrap a,
+    .td-subfooter-menu li a:hover,
+    .footer-social-wrap a:hover,
+    a.vc_btn-black:hover,
+    .td-smart-list-dropdown-wrap .td-smart-list-button:hover,
+    .td_module_17 .td-read-more a:hover,
+    .td_module_18 .td-read-more a:hover,
+    .td_module_19 .td-post-author-name a:hover,
+    .td-instagram-user a,
+    .td-pulldown-syle-2 .td-subcat-dropdown:hover .td-subcat-more span,
+    .td-pulldown-syle-2 .td-subcat-dropdown:hover .td-subcat-more i,
+    .td-pulldown-syle-3 .td-subcat-dropdown:hover .td-subcat-more span,
+    .td-pulldown-syle-3 .td-subcat-dropdown:hover .td-subcat-more i,
+    .td-block-title-wrap .td-wrapper-pulldown-filter .td-pulldown-filter-display-option:hover,
+    .td-block-title-wrap .td-wrapper-pulldown-filter .td-pulldown-filter-display-option:hover i,
+    .td-block-title-wrap .td-wrapper-pulldown-filter .td-pulldown-filter-link:hover,
+    .td-block-title-wrap .td-wrapper-pulldown-filter .td-pulldown-filter-item .td-cur-simple-item,
+    .td_block_template_2 .td-related-title .td-cur-simple-item,
+    .td_block_template_5 .td-related-title .td-cur-simple-item,
+    .td_block_template_6 .td-related-title .td-cur-simple-item,
+    .td_block_template_7 .td-related-title .td-cur-simple-item,
+    .td_block_template_8 .td-related-title .td-cur-simple-item,
+    .td_block_template_9 .td-related-title .td-cur-simple-item,
+    .td_block_template_10 .td-related-title .td-cur-simple-item,
+    .td_block_template_11 .td-related-title .td-cur-simple-item,
+    .td_block_template_12 .td-related-title .td-cur-simple-item,
+    .td_block_template_13 .td-related-title .td-cur-simple-item,
+    .td_block_template_14 .td-related-title .td-cur-simple-item,
+    .td_block_template_15 .td-related-title .td-cur-simple-item,
+    .td_block_template_16 .td-related-title .td-cur-simple-item,
+    .td_block_template_17 .td-related-title .td-cur-simple-item,
+    .td-theme-wrap .sf-menu ul .td-menu-item > a:hover,
+    .td-theme-wrap .sf-menu ul .sfHover > a,
+    .td-theme-wrap .sf-menu ul .current-menu-ancestor > a,
+    .td-theme-wrap .sf-menu ul .current-category-ancestor > a,
+    .td-theme-wrap .sf-menu ul .current-menu-item > a,
+    .td_outlined_btn,
+     .td_block_categories_tags .td-ct-item:hover {
+        color: #276ef1;
+    }
+
+    a.vc_btn-black.vc_btn_square_outlined:hover,
+    a.vc_btn-black.vc_btn_outlined:hover,
+    .td-mega-menu-page .wpb_content_element ul li a:hover,
+    .td-theme-wrap .td-aj-search-results .td_module_wrap:hover .entry-title a,
+    .td-theme-wrap .header-search-wrap .result-msg a:hover {
+        color: #276ef1 !important;
+    }
+
+    .td-next-prev-wrap a:hover,
+    .td-load-more-wrap a:hover,
+    .td-post-small-box a:hover,
+    .page-nav .current,
+    .page-nav:first-child > div,
+    .td_category_template_8 .td-category-header .td-category a.td-current-sub-category,
+    .td_category_template_4 .td-category-siblings .td-category a:hover,
+    #bbpress-forums .bbp-pagination .current,
+    .post .td_quote_box,
+    .page .td_quote_box,
+    a.vc_btn-black:hover,
+    .td_block_template_5 .td-block-title > *,
+    .td_outlined_btn {
+        border-color: #276ef1;
+    }
+
+    .td_wrapper_video_playlist .td_video_currently_playing:after {
+        border-color: #276ef1 !important;
+    }
+
+    .header-search-wrap .td-drop-down-search:before {
+        border-color: transparent transparent #276ef1 transparent;
+    }
+
+    .block-title > span,
+    .block-title > a,
+    .block-title > label,
+    .widgettitle,
+    .widgettitle:after,
+    .td-trending-now-title,
+    .td-trending-now-wrapper:hover .td-trending-now-title,
+    .wpb_tabs li.ui-tabs-active a,
+    .wpb_tabs li:hover a,
+    .vc_tta-container .vc_tta-color-grey.vc_tta-tabs-position-top.vc_tta-style-classic .vc_tta-tabs-container .vc_tta-tab.vc_active > a,
+    .vc_tta-container .vc_tta-color-grey.vc_tta-tabs-position-top.vc_tta-style-classic .vc_tta-tabs-container .vc_tta-tab:hover > a,
+    .td_block_template_1 .td-related-title .td-cur-simple-item,
+    .woocommerce .product .products h2:not(.woocommerce-loop-product__title),
+    .td-subcat-filter .td-subcat-dropdown:hover .td-subcat-more, 
+    .td_3D_btn,
+    .td_shadow_btn,
+    .td_default_btn,
+    .td_round_btn, 
+    .td_outlined_btn:hover {
+    	background-color: #276ef1;
+    }
+
+    .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    	background-color: #276ef1 !important;
+    }
+
+    .block-title,
+    .td_block_template_1 .td-related-title,
+    .wpb_tabs .wpb_tabs_nav,
+    .vc_tta-container .vc_tta-color-grey.vc_tta-tabs-position-top.vc_tta-style-classic .vc_tta-tabs-container,
+    .woocommerce div.product .woocommerce-tabs ul.tabs:before {
+        border-color: #276ef1;
+    }
+    .td_block_wrap .td-subcat-item a.td-cur-simple-item {
+	    color: #276ef1;
+	}
+
+
+    
+    .td-grid-style-4 .entry-title
+    {
+        background-color: rgba(39, 110, 241, 0.7);
+    }
+
+    
+    .td-theme-wrap .sf-menu .td-normal-menu .td-menu-item > a:hover,
+    .td-theme-wrap .sf-menu .td-normal-menu .sfHover > a,
+    .td-theme-wrap .sf-menu .td-normal-menu .current-menu-ancestor > a,
+    .td-theme-wrap .sf-menu .td-normal-menu .current-category-ancestor > a,
+    .td-theme-wrap .sf-menu .td-normal-menu .current-menu-item > a {
+        color: #276ef1;
+    }
+
+    
+    .td-theme-wrap .td_mod_mega_menu:hover .entry-title a,
+    .td-theme-wrap .sf-menu .td_mega_menu_sub_cats .cur-sub-cat {
+        color: #276ef1;
+    }
+    .td-theme-wrap .sf-menu .td-mega-menu .td-post-category:hover,
+    .td-theme-wrap .td-mega-menu .td-next-prev-wrap a:hover {
+        background-color: #276ef1;
+    }
+    .td-theme-wrap .td-mega-menu .td-next-prev-wrap a:hover {
+        border-color: #276ef1;
+    }
+
+    
+    .td-theme-wrap .header-search-wrap .td-drop-down-search .btn:hover {
+        background-color: #276ef1;
+    }
+    .td-theme-wrap .td-aj-search-results .td_module_wrap:hover .entry-title a,
+    .td-theme-wrap .header-search-wrap .result-msg a:hover {
+        color: #276ef1 !important;
+    }
+
+    
+    .td-menu-background:before,
+    .td-search-background:before {
+        background: #333145;
+        background: -moz-linear-gradient(top, #333145 0%, #276ef1 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, #333145), color-stop(100%, #276ef1));
+        background: -webkit-linear-gradient(top, #333145 0%, #276ef1 100%);
+        background: -o-linear-gradient(top, #333145 0%, #276ef1 100%);
+        background: -ms-linear-gradient(top, #333145 0%, #276ef1 100%);
+        background: linear-gradient(to bottom, #333145 0%, #276ef1 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333145', endColorstr='#276ef1', GradientType=0 );
+    }
+
+    
+    .td-mobile-content .current-menu-item > a,
+    .td-mobile-content .current-menu-ancestor > a,
+    .td-mobile-content .current-category-ancestor > a,
+    #td-mobile-nav .td-menu-login-section a:hover,
+    #td-mobile-nav .td-register-section a:hover,
+    #td-mobile-nav .td-menu-socials-wrap a:hover i,
+    .td-search-close a:hover i {
+        color: #276ef1;
+    }
+
+    
+    .mfp-content .td-login-button {
+        color: #151515;
+    }
+    
+    .mfp-content .td-login-button:active,
+    .mfp-content .td-login-button:hover {
+        color: #151515;
+    }
+    
+    .white-popup-block:after {
+        background: rgba(42, 128, 203, 0.8);
+        background: -moz-linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(42, 128, 203, 0.8)), color-stop(100%, #276ef1));
+        background: -webkit-linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        background: -o-linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        background: -ms-linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        background: linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(42, 128, 203, 0.8)', endColorstr='#276ef1', GradientType=0 );
+    }
+
+
+    
+    .td-header-wrap .td-logo-text-container .td-logo-text {
+        color: #151515;
+    }
+
+    
+    .td-header-bg:before {
+        opacity: 1;
+    }
+
+
+
+
+
+    
+    .td-footer-wrapper,
+    .td-footer-wrapper .td_block_template_7 .td-block-title > *,
+    .td-footer-wrapper .td_block_template_17 .td-block-title,
+    .td-footer-wrapper .td-block-title-wrap .td-wrapper-pulldown-filter {
+        background-color: #151515;
+    }
+
+    
+    .post blockquote p,
+    .page blockquote p {
+    	color: #444444;
+    }
+    .post .td_quote_box,
+    .page .td_quote_box {
+        border-color: #444444;
+    }
+
+
+    
+    .td-post-content p,
+    .td-post-content {
+        font-size:16px;
+	
+    }
+    
+    .post .td-post-source-tags a,
+    .post .td-post-source-tags span {
+        font-size:15px;
+	
+    }
+    
+    .post .td-post-next-prev-content span {
+        font-size:15px;
+	
+    }
+    
+    .post .td-post-next-prev-content a {
+        font-size:18px;
+	
+    }
+    
+    .post .author-box-wrap .td-author-name a {
+        font-size:15px;
+	
+    }
+    
+    .post .author-box-wrap .td-author-url a {
+        font-size:12px;
+	
+    }
+    
+    .post .author-box-wrap .td-author-description {
+        font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:15px;
+	
+    }
+    
+    .td_block_related_posts .entry-title a {
+        font-size:12px;
+	
+    }
+    
+    .post .td-post-share-title {
+        font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:12px;
+	
+    }
+    
+	.wp-caption-text,
+	.wp-caption-dd,
+	 .wp-block-image figcaption {
+		font-size:12px;
+	
+	}
+    
+    .td-post-template-default .td-post-sub-title,
+    .td-post-template-1 .td-post-sub-title,
+    .td-post-template-4 .td-post-sub-title,
+    .td-post-template-5 .td-post-sub-title,
+    .td-post-template-9 .td-post-sub-title,
+    .td-post-template-10 .td-post-sub-title,
+    .td-post-template-11 .td-post-sub-title {
+        font-size:16px;
+	
+    }
+    
+    .td-post-template-2 .td-post-sub-title,
+    .td-post-template-3 .td-post-sub-title,
+    .td-post-template-6 .td-post-sub-title,
+    .td-post-template-7 .td-post-sub-title,
+    .td-post-template-8 .td-post-sub-title {
+        font-size:15px;
+	
+    }
+
+
+
+
+	
+    .td-page-title,
+    .woocommerce-page .page-title,
+    .td-category-title-holder .td-page-title {
+    	text-transform:none;
+	
+    }
+    
+    .td-page-content p,
+    .td-page-content li,
+    .td-page-content .td_block_text_with_title,
+    .woocommerce-page .page-description > p,
+    .wpb_text_column p {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+	.footer-text-wrap {
+		font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:14px;
+	
+	}
+	
+	.td-sub-footer-copy {
+		font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:14px;
+	
+	}
+	
+	.td-sub-footer-menu ul li a {
+		font-size:12px;
+	
+	}
+
+
+
+
+	
+    body, p {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+
+
+
+
+    
+    #bbpress-forums .bbp-forum-info .bbp-forum-content {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+    #bbpress-forums .hentry .bbp-topic-content p,
+    #bbpress-forums .hentry .bbp-reply-content p {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+    #bbpress-forums div.bbp-template-notice p {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+    #bbpress-forums .bbp-pagination-count,
+    #bbpress-forums .page-numbers {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+    #bbpress-forums .bbp-topic-started-by,
+    #bbpress-forums .bbp-topic-started-by a,
+    #bbpress-forums .bbp-topic-started-in,
+    #bbpress-forums .bbp-topic-started-in a {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+.td-header-wrap .black-menu .sf-menu > .current-menu-item > a,
+    .td-header-wrap .black-menu .sf-menu > .current-menu-ancestor > a,
+    .td-header-wrap .black-menu .sf-menu > .current-category-ancestor > a,
+    .td-header-wrap .black-menu .sf-menu > li > a:hover,
+    .td-header-wrap .black-menu .sf-menu > .sfHover > a,
+    .td-header-style-12 .td-header-menu-wrap-full,
+    .sf-menu > .current-menu-item > a:after,
+    .sf-menu > .current-menu-ancestor > a:after,
+    .sf-menu > .current-category-ancestor > a:after,
+    .sf-menu > li:hover > a:after,
+    .sf-menu > .sfHover > a:after,
+    .td-header-style-12 .td-affix,
+    .header-search-wrap .td-drop-down-search:after,
+    .header-search-wrap .td-drop-down-search .btn:hover,
+    input[type=submit]:hover,
+    .td-read-more a,
+    .td-post-category:hover,
+    .td-grid-style-1.td-hover-1 .td-big-grid-post:hover .td-post-category,
+    .td-grid-style-5.td-hover-1 .td-big-grid-post:hover .td-post-category,
+    .td_top_authors .td-active .td-author-post-count,
+    .td_top_authors .td-active .td-author-comments-count,
+    .td_top_authors .td_mod_wrap:hover .td-author-post-count,
+    .td_top_authors .td_mod_wrap:hover .td-author-comments-count,
+    .td-404-sub-sub-title a:hover,
+    .td-search-form-widget .wpb_button:hover,
+    .td-rating-bar-wrap div,
+    .td_category_template_3 .td-current-sub-category,
+    .dropcap,
+    .td_wrapper_video_playlist .td_video_controls_playlist_wrapper,
+    .wpb_default,
+    .wpb_default:hover,
+    .td-left-smart-list:hover,
+    .td-right-smart-list:hover,
+    .woocommerce-checkout .woocommerce input.button:hover,
+    .woocommerce-page .woocommerce a.button:hover,
+    .woocommerce-account div.woocommerce .button:hover,
+    #bbpress-forums button:hover,
+    .bbp_widget_login .button:hover,
+    .td-footer-wrapper .td-post-category,
+    .td-footer-wrapper .widget_product_search input[type="submit"]:hover,
+    .woocommerce .product a.button:hover,
+    .woocommerce .product #respond input#submit:hover,
+    .woocommerce .checkout input#place_order:hover,
+    .woocommerce .woocommerce.widget .button:hover,
+    .single-product .product .summary .cart .button:hover,
+    .woocommerce-cart .woocommerce table.cart .button:hover,
+    .woocommerce-cart .woocommerce .shipping-calculator-form .button:hover,
+    .td-next-prev-wrap a:hover,
+    .td-load-more-wrap a:hover,
+    .td-post-small-box a:hover,
+    .page-nav .current,
+    .page-nav:first-child > div,
+    .td_category_template_8 .td-category-header .td-category a.td-current-sub-category,
+    .td_category_template_4 .td-category-siblings .td-category a:hover,
+    #bbpress-forums .bbp-pagination .current,
+    #bbpress-forums #bbp-single-user-details #bbp-user-navigation li.current a,
+    .td-theme-slider:hover .slide-meta-cat a,
+    a.vc_btn-black:hover,
+    .td-trending-now-wrapper:hover .td-trending-now-title,
+    .td-scroll-up,
+    .td-smart-list-button:hover,
+    .td-weather-information:before,
+    .td-weather-week:before,
+    .td_block_exchange .td-exchange-header:before,
+    .td_block_big_grid_9.td-grid-style-1 .td-post-category,
+    .td_block_big_grid_9.td-grid-style-5 .td-post-category,
+    .td-grid-style-6.td-hover-1 .td-module-thumb:after,
+    .td-pulldown-syle-2 .td-subcat-dropdown ul:after,
+    .td_block_template_9 .td-block-title:after,
+    .td_block_template_15 .td-block-title:before,
+    div.wpforms-container .wpforms-form div.wpforms-submit-container button[type=submit] {
+        background-color: #276ef1;
+    }
+
+    .td_block_template_4 .td-related-title .td-cur-simple-item:before {
+        border-color: #276ef1 transparent transparent transparent !important;
+    }
+
+    .woocommerce .woocommerce-message .button:hover,
+    .woocommerce .woocommerce-error .button:hover,
+    .woocommerce .woocommerce-info .button:hover {
+        background-color: #276ef1 !important;
+    }
+    
+    
+    .td_block_template_4 .td-related-title .td-cur-simple-item,
+    .td_block_template_3 .td-related-title .td-cur-simple-item,
+    .td_block_template_9 .td-related-title:after {
+        background-color: #276ef1;
+    }
+
+    .woocommerce .product .onsale,
+    .woocommerce.widget .ui-slider .ui-slider-handle {
+        background: none #276ef1;
+    }
+
+    .woocommerce.widget.widget_layered_nav_filters ul li a {
+        background: none repeat scroll 0 0 #276ef1 !important;
+    }
+
+    a,
+    cite a:hover,
+    .td_mega_menu_sub_cats .cur-sub-cat,
+    .td-mega-span h3 a:hover,
+    .td_mod_mega_menu:hover .entry-title a,
+    .header-search-wrap .result-msg a:hover,
+    .td-header-top-menu .td-drop-down-search .td_module_wrap:hover .entry-title a,
+    .td-header-top-menu .td-icon-search:hover,
+    .td-header-wrap .result-msg a:hover,
+    .top-header-menu li a:hover,
+    .top-header-menu .current-menu-item > a,
+    .top-header-menu .current-menu-ancestor > a,
+    .top-header-menu .current-category-ancestor > a,
+    .td-social-icon-wrap > a:hover,
+    .td-header-sp-top-widget .td-social-icon-wrap a:hover,
+    .td-page-content blockquote p,
+    .td-post-content blockquote p,
+    .mce-content-body blockquote p,
+    .comment-content blockquote p,
+    .wpb_text_column blockquote p,
+    .td_block_text_with_title blockquote p,
+    .td_module_wrap:hover .entry-title a,
+    .td-subcat-filter .td-subcat-list a:hover,
+    .td-subcat-filter .td-subcat-dropdown a:hover,
+    .td_quote_on_blocks,
+    .dropcap2,
+    .dropcap3,
+    .td_top_authors .td-active .td-authors-name a,
+    .td_top_authors .td_mod_wrap:hover .td-authors-name a,
+    .td-post-next-prev-content a:hover,
+    .author-box-wrap .td-author-social a:hover,
+    .td-author-name a:hover,
+    .td-author-url a:hover,
+    .td_mod_related_posts:hover h3 > a,
+    .td-post-template-11 .td-related-title .td-related-left:hover,
+    .td-post-template-11 .td-related-title .td-related-right:hover,
+    .td-post-template-11 .td-related-title .td-cur-simple-item,
+    .td-post-template-11 .td_block_related_posts .td-next-prev-wrap a:hover,
+    .comment-reply-link:hover,
+    .logged-in-as a:hover,
+    #cancel-comment-reply-link:hover,
+    .td-search-query,
+    .td-category-header .td-pulldown-category-filter-link:hover,
+    .td-category-siblings .td-subcat-dropdown a:hover,
+    .td-category-siblings .td-subcat-dropdown a.td-current-sub-category,
+    .widget a:hover,
+    .td_wp_recentcomments a:hover,
+    .archive .widget_archive .current,
+    .archive .widget_archive .current a,
+    .widget_calendar tfoot a:hover,
+    .woocommerce a.added_to_cart:hover,
+    .woocommerce-account .woocommerce-MyAccount-navigation a:hover,
+    #bbpress-forums li.bbp-header .bbp-reply-content span a:hover,
+    #bbpress-forums .bbp-forum-freshness a:hover,
+    #bbpress-forums .bbp-topic-freshness a:hover,
+    #bbpress-forums .bbp-forums-list li a:hover,
+    #bbpress-forums .bbp-forum-title:hover,
+    #bbpress-forums .bbp-topic-permalink:hover,
+    #bbpress-forums .bbp-topic-started-by a:hover,
+    #bbpress-forums .bbp-topic-started-in a:hover,
+    #bbpress-forums .bbp-body .super-sticky li.bbp-topic-title .bbp-topic-permalink,
+    #bbpress-forums .bbp-body .sticky li.bbp-topic-title .bbp-topic-permalink,
+    .widget_display_replies .bbp-author-name,
+    .widget_display_topics .bbp-author-name,
+    .footer-text-wrap .footer-email-wrap a,
+    .td-subfooter-menu li a:hover,
+    .footer-social-wrap a:hover,
+    a.vc_btn-black:hover,
+    .td-smart-list-dropdown-wrap .td-smart-list-button:hover,
+    .td_module_17 .td-read-more a:hover,
+    .td_module_18 .td-read-more a:hover,
+    .td_module_19 .td-post-author-name a:hover,
+    .td-instagram-user a,
+    .td-pulldown-syle-2 .td-subcat-dropdown:hover .td-subcat-more span,
+    .td-pulldown-syle-2 .td-subcat-dropdown:hover .td-subcat-more i,
+    .td-pulldown-syle-3 .td-subcat-dropdown:hover .td-subcat-more span,
+    .td-pulldown-syle-3 .td-subcat-dropdown:hover .td-subcat-more i,
+    .td-block-title-wrap .td-wrapper-pulldown-filter .td-pulldown-filter-display-option:hover,
+    .td-block-title-wrap .td-wrapper-pulldown-filter .td-pulldown-filter-display-option:hover i,
+    .td-block-title-wrap .td-wrapper-pulldown-filter .td-pulldown-filter-link:hover,
+    .td-block-title-wrap .td-wrapper-pulldown-filter .td-pulldown-filter-item .td-cur-simple-item,
+    .td_block_template_2 .td-related-title .td-cur-simple-item,
+    .td_block_template_5 .td-related-title .td-cur-simple-item,
+    .td_block_template_6 .td-related-title .td-cur-simple-item,
+    .td_block_template_7 .td-related-title .td-cur-simple-item,
+    .td_block_template_8 .td-related-title .td-cur-simple-item,
+    .td_block_template_9 .td-related-title .td-cur-simple-item,
+    .td_block_template_10 .td-related-title .td-cur-simple-item,
+    .td_block_template_11 .td-related-title .td-cur-simple-item,
+    .td_block_template_12 .td-related-title .td-cur-simple-item,
+    .td_block_template_13 .td-related-title .td-cur-simple-item,
+    .td_block_template_14 .td-related-title .td-cur-simple-item,
+    .td_block_template_15 .td-related-title .td-cur-simple-item,
+    .td_block_template_16 .td-related-title .td-cur-simple-item,
+    .td_block_template_17 .td-related-title .td-cur-simple-item,
+    .td-theme-wrap .sf-menu ul .td-menu-item > a:hover,
+    .td-theme-wrap .sf-menu ul .sfHover > a,
+    .td-theme-wrap .sf-menu ul .current-menu-ancestor > a,
+    .td-theme-wrap .sf-menu ul .current-category-ancestor > a,
+    .td-theme-wrap .sf-menu ul .current-menu-item > a,
+    .td_outlined_btn,
+     .td_block_categories_tags .td-ct-item:hover {
+        color: #276ef1;
+    }
+
+    a.vc_btn-black.vc_btn_square_outlined:hover,
+    a.vc_btn-black.vc_btn_outlined:hover,
+    .td-mega-menu-page .wpb_content_element ul li a:hover,
+    .td-theme-wrap .td-aj-search-results .td_module_wrap:hover .entry-title a,
+    .td-theme-wrap .header-search-wrap .result-msg a:hover {
+        color: #276ef1 !important;
+    }
+
+    .td-next-prev-wrap a:hover,
+    .td-load-more-wrap a:hover,
+    .td-post-small-box a:hover,
+    .page-nav .current,
+    .page-nav:first-child > div,
+    .td_category_template_8 .td-category-header .td-category a.td-current-sub-category,
+    .td_category_template_4 .td-category-siblings .td-category a:hover,
+    #bbpress-forums .bbp-pagination .current,
+    .post .td_quote_box,
+    .page .td_quote_box,
+    a.vc_btn-black:hover,
+    .td_block_template_5 .td-block-title > *,
+    .td_outlined_btn {
+        border-color: #276ef1;
+    }
+
+    .td_wrapper_video_playlist .td_video_currently_playing:after {
+        border-color: #276ef1 !important;
+    }
+
+    .header-search-wrap .td-drop-down-search:before {
+        border-color: transparent transparent #276ef1 transparent;
+    }
+
+    .block-title > span,
+    .block-title > a,
+    .block-title > label,
+    .widgettitle,
+    .widgettitle:after,
+    .td-trending-now-title,
+    .td-trending-now-wrapper:hover .td-trending-now-title,
+    .wpb_tabs li.ui-tabs-active a,
+    .wpb_tabs li:hover a,
+    .vc_tta-container .vc_tta-color-grey.vc_tta-tabs-position-top.vc_tta-style-classic .vc_tta-tabs-container .vc_tta-tab.vc_active > a,
+    .vc_tta-container .vc_tta-color-grey.vc_tta-tabs-position-top.vc_tta-style-classic .vc_tta-tabs-container .vc_tta-tab:hover > a,
+    .td_block_template_1 .td-related-title .td-cur-simple-item,
+    .woocommerce .product .products h2:not(.woocommerce-loop-product__title),
+    .td-subcat-filter .td-subcat-dropdown:hover .td-subcat-more, 
+    .td_3D_btn,
+    .td_shadow_btn,
+    .td_default_btn,
+    .td_round_btn, 
+    .td_outlined_btn:hover {
+    	background-color: #276ef1;
+    }
+
+    .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    	background-color: #276ef1 !important;
+    }
+
+    .block-title,
+    .td_block_template_1 .td-related-title,
+    .wpb_tabs .wpb_tabs_nav,
+    .vc_tta-container .vc_tta-color-grey.vc_tta-tabs-position-top.vc_tta-style-classic .vc_tta-tabs-container,
+    .woocommerce div.product .woocommerce-tabs ul.tabs:before {
+        border-color: #276ef1;
+    }
+    .td_block_wrap .td-subcat-item a.td-cur-simple-item {
+	    color: #276ef1;
+	}
+
+
+    
+    .td-grid-style-4 .entry-title
+    {
+        background-color: rgba(39, 110, 241, 0.7);
+    }
+
+    
+    .td-theme-wrap .sf-menu .td-normal-menu .td-menu-item > a:hover,
+    .td-theme-wrap .sf-menu .td-normal-menu .sfHover > a,
+    .td-theme-wrap .sf-menu .td-normal-menu .current-menu-ancestor > a,
+    .td-theme-wrap .sf-menu .td-normal-menu .current-category-ancestor > a,
+    .td-theme-wrap .sf-menu .td-normal-menu .current-menu-item > a {
+        color: #276ef1;
+    }
+
+    
+    .td-theme-wrap .td_mod_mega_menu:hover .entry-title a,
+    .td-theme-wrap .sf-menu .td_mega_menu_sub_cats .cur-sub-cat {
+        color: #276ef1;
+    }
+    .td-theme-wrap .sf-menu .td-mega-menu .td-post-category:hover,
+    .td-theme-wrap .td-mega-menu .td-next-prev-wrap a:hover {
+        background-color: #276ef1;
+    }
+    .td-theme-wrap .td-mega-menu .td-next-prev-wrap a:hover {
+        border-color: #276ef1;
+    }
+
+    
+    .td-theme-wrap .header-search-wrap .td-drop-down-search .btn:hover {
+        background-color: #276ef1;
+    }
+    .td-theme-wrap .td-aj-search-results .td_module_wrap:hover .entry-title a,
+    .td-theme-wrap .header-search-wrap .result-msg a:hover {
+        color: #276ef1 !important;
+    }
+
+    
+    .td-menu-background:before,
+    .td-search-background:before {
+        background: #333145;
+        background: -moz-linear-gradient(top, #333145 0%, #276ef1 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, #333145), color-stop(100%, #276ef1));
+        background: -webkit-linear-gradient(top, #333145 0%, #276ef1 100%);
+        background: -o-linear-gradient(top, #333145 0%, #276ef1 100%);
+        background: -ms-linear-gradient(top, #333145 0%, #276ef1 100%);
+        background: linear-gradient(to bottom, #333145 0%, #276ef1 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333145', endColorstr='#276ef1', GradientType=0 );
+    }
+
+    
+    .td-mobile-content .current-menu-item > a,
+    .td-mobile-content .current-menu-ancestor > a,
+    .td-mobile-content .current-category-ancestor > a,
+    #td-mobile-nav .td-menu-login-section a:hover,
+    #td-mobile-nav .td-register-section a:hover,
+    #td-mobile-nav .td-menu-socials-wrap a:hover i,
+    .td-search-close a:hover i {
+        color: #276ef1;
+    }
+
+    
+    .mfp-content .td-login-button {
+        color: #151515;
+    }
+    
+    .mfp-content .td-login-button:active,
+    .mfp-content .td-login-button:hover {
+        color: #151515;
+    }
+    
+    .white-popup-block:after {
+        background: rgba(42, 128, 203, 0.8);
+        background: -moz-linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(42, 128, 203, 0.8)), color-stop(100%, #276ef1));
+        background: -webkit-linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        background: -o-linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        background: -ms-linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        background: linear-gradient(45deg, rgba(42, 128, 203, 0.8) 0%, #276ef1 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(42, 128, 203, 0.8)', endColorstr='#276ef1', GradientType=0 );
+    }
+
+
+    
+    .td-header-wrap .td-logo-text-container .td-logo-text {
+        color: #151515;
+    }
+
+    
+    .td-header-bg:before {
+        opacity: 1;
+    }
+
+
+
+
+
+    
+    .td-footer-wrapper,
+    .td-footer-wrapper .td_block_template_7 .td-block-title > *,
+    .td-footer-wrapper .td_block_template_17 .td-block-title,
+    .td-footer-wrapper .td-block-title-wrap .td-wrapper-pulldown-filter {
+        background-color: #151515;
+    }
+
+    
+    .post blockquote p,
+    .page blockquote p {
+    	color: #444444;
+    }
+    .post .td_quote_box,
+    .page .td_quote_box {
+        border-color: #444444;
+    }
+
+
+    
+    .td-post-content p,
+    .td-post-content {
+        font-size:16px;
+	
+    }
+    
+    .post .td-post-source-tags a,
+    .post .td-post-source-tags span {
+        font-size:15px;
+	
+    }
+    
+    .post .td-post-next-prev-content span {
+        font-size:15px;
+	
+    }
+    
+    .post .td-post-next-prev-content a {
+        font-size:18px;
+	
+    }
+    
+    .post .author-box-wrap .td-author-name a {
+        font-size:15px;
+	
+    }
+    
+    .post .author-box-wrap .td-author-url a {
+        font-size:12px;
+	
+    }
+    
+    .post .author-box-wrap .td-author-description {
+        font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:15px;
+	
+    }
+    
+    .td_block_related_posts .entry-title a {
+        font-size:12px;
+	
+    }
+    
+    .post .td-post-share-title {
+        font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:12px;
+	
+    }
+    
+	.wp-caption-text,
+	.wp-caption-dd,
+	 .wp-block-image figcaption {
+		font-size:12px;
+	
+	}
+    
+    .td-post-template-default .td-post-sub-title,
+    .td-post-template-1 .td-post-sub-title,
+    .td-post-template-4 .td-post-sub-title,
+    .td-post-template-5 .td-post-sub-title,
+    .td-post-template-9 .td-post-sub-title,
+    .td-post-template-10 .td-post-sub-title,
+    .td-post-template-11 .td-post-sub-title {
+        font-size:16px;
+	
+    }
+    
+    .td-post-template-2 .td-post-sub-title,
+    .td-post-template-3 .td-post-sub-title,
+    .td-post-template-6 .td-post-sub-title,
+    .td-post-template-7 .td-post-sub-title,
+    .td-post-template-8 .td-post-sub-title {
+        font-size:15px;
+	
+    }
+
+
+
+
+	
+    .td-page-title,
+    .woocommerce-page .page-title,
+    .td-category-title-holder .td-page-title {
+    	text-transform:none;
+	
+    }
+    
+    .td-page-content p,
+    .td-page-content li,
+    .td-page-content .td_block_text_with_title,
+    .woocommerce-page .page-description > p,
+    .wpb_text_column p {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+	.footer-text-wrap {
+		font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:14px;
+	
+	}
+	
+	.td-sub-footer-copy {
+		font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:14px;
+	
+	}
+	
+	.td-sub-footer-menu ul li a {
+		font-size:12px;
+	
+	}
+
+
+
+
+	
+    body, p {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+
+
+
+
+    
+    #bbpress-forums .bbp-forum-info .bbp-forum-content {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+    #bbpress-forums .hentry .bbp-topic-content p,
+    #bbpress-forums .hentry .bbp-reply-content p {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+    #bbpress-forums div.bbp-template-notice p {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+    #bbpress-forums .bbp-pagination-count,
+    #bbpress-forums .page-numbers {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+    
+    #bbpress-forums .bbp-topic-started-by,
+    #bbpress-forums .bbp-topic-started-by a,
+    #bbpress-forums .bbp-topic-started-in,
+    #bbpress-forums .bbp-topic-started-in a {
+    	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+</style>
+
+
+</body>
+</html>
